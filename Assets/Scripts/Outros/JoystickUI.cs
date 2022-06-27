@@ -6,7 +6,8 @@ using UnityEngine.EventSystems;
 
 public class JoystickUI : MonoBehaviour, IPointerUpHandler, IPointerDownHandler , IDragHandler
 {
-    [SerializeField] private RectTransform joystickTransform;
+    [SerializeField] private RectTransform movementJoystick;
+    [SerializeField] private RectTransform rotationJoystick;
 
     [SerializeField]
     private float dragThreshold = 0.6f;
@@ -16,6 +17,7 @@ public class JoystickUI : MonoBehaviour, IPointerUpHandler, IPointerDownHandler 
     private int dragOffsetDistance = 100; 
 
     public event Action<Vector3> OnMove;
+    public event Action<Vector3> OnRotate;
 
     private Vector3 moveInput;
 
@@ -27,7 +29,7 @@ public class JoystickUI : MonoBehaviour, IPointerUpHandler, IPointerDownHandler 
     /// <param name="eventData"></param>
     public void OnPointerUp(PointerEventData eventData)
     {
-        joystickTransform.anchoredPosition = Vector3.zero;
+        movementJoystick.anchoredPosition = Vector3.zero;
         OnMove?.Invoke(Vector3.zero);
     }
 
@@ -39,14 +41,14 @@ public class JoystickUI : MonoBehaviour, IPointerUpHandler, IPointerDownHandler 
     {
         Vector2 offset;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
-            joystickTransform,
+            movementJoystick,
             eventData.position,
-            null,
+            eventData.pressEventCamera,
             out offset
             );
         offset = Vector2.ClampMagnitude(offset, dragOffsetDistance) / dragOffsetDistance;
-        joystickTransform.anchoredPosition = offset * dragMovementDistance;
-        
+        movementJoystick.anchoredPosition = offset * dragMovementDistance;
+        print(offset);
         moveInput = MovementInput(offset);
         OnMove?.Invoke(moveInput);
     }
@@ -57,6 +59,7 @@ public class JoystickUI : MonoBehaviour, IPointerUpHandler, IPointerDownHandler 
     /// <param name="eventData"></param>
     public void OnPointerDown(PointerEventData eventData)
     {
+        OnDrag(eventData);
     }
 
     /// <summary>

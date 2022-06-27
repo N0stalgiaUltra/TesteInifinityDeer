@@ -9,21 +9,28 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float movementVelocity;
 
     [SerializeField] JoystickUI joystickUI;
+    Vector3 movement;
+    [SerializeField] float rotationSpeed;
     void Start()
     {
-        joystickUI.OnMove += PlayerMovement_OnMove;
+        joystickUI.OnMove += Move;
     }
 
-    private void PlayerMovement_OnMove(Vector3 obj)
+    private void Move(Vector3 movementInput)
     {
-        print($"x: {obj.x}, y: {obj.z}");
-        rb.velocity = obj * movementVelocity;
+        movement = movementInput;
+        if (movement != Vector3.zero)
+        {
+            Quaternion toRotation = Quaternion.LookRotation(movement, Vector3.up);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+        }
     }
 
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+        rb.velocity = movement * movementVelocity;
 
 
     }
