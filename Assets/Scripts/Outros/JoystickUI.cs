@@ -2,12 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.Events;
 
 public class JoystickUI : MonoBehaviour, IPointerUpHandler, IPointerDownHandler , IDragHandler
 {
     [SerializeField] private RectTransform movementJoystick;
-    [SerializeField] private RectTransform rotationJoystick;
 
     [SerializeField]
     private float dragThreshold = 0.6f;
@@ -17,10 +18,16 @@ public class JoystickUI : MonoBehaviour, IPointerUpHandler, IPointerDownHandler 
     private int dragOffsetDistance = 100; 
 
     public event Action<Vector3> OnMove;
-    public event Action<Vector3> OnRotate;
+
 
     private Vector3 moveInput;
 
+    [SerializeField] private Button shootButton;
+    [SerializeField] private Button healButton;
+
+    private void Start()
+    {
+    }
 
     #region Movimento via AnalogStickUI
     /// <summary>
@@ -74,4 +81,6 @@ public class JoystickUI : MonoBehaviour, IPointerUpHandler, IPointerDownHandler 
         return new Vector3(x, 0, z);
     }
     #endregion
+
+ 
 }
