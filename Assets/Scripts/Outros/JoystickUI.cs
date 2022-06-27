@@ -1,0 +1,74 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.EventSystems;
+
+public class JoystickUI : MonoBehaviour, IPointerUpHandler, IPointerDownHandler , IDragHandler
+{
+    [SerializeField] private RectTransform joystickTransform;
+
+    [SerializeField]
+    private float dragThreshold = 0.6f;
+    [SerializeField]
+    private int dragMovementDistance = 30;
+    [SerializeField]
+    private int dragOffsetDistance = 100; 
+
+    public event Action<Vector3> OnMove;
+
+    private Vector3 moveInput;
+
+
+    #region Movimento via AnalogStickUI
+    /// <summary>
+    /// Utilizado quando o analog stick é solto, resentando as posições.
+    /// </summary>
+    /// <param name="eventData"></param>
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        joystickTransform.anchoredPosition = Vector3.zero;
+        OnMove?.Invoke(Vector3.zero);
+    }
+
+    /// <summary>
+    /// Utilizado para fazer o movimento do drag do analog stick e também atribuir movimento ao player via evento
+    /// </summary>
+    /// <param name="eventData">Dados do objeto a ser manipulado, no caso, o stick menor (branco)</param>
+    public void OnDrag(PointerEventData eventData)
+    {
+        Vector2 offset;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            joystickTransform,
+            eventData.position,
+            null,
+            out offset
+            );
+        offset = Vector2.ClampMagnitude(offset, dragOffsetDistance) / dragOffsetDistance;
+        joystickTransform.anchoredPosition = offset * dragMovementDistance;
+        
+        moveInput = MovementInput(offset);
+        OnMove?.Invoke(moveInput);
+    }
+
+    /// <summary>
+    /// Usado somente para não travar o analog stick em uma posição
+    /// </summary>
+    /// <param name="eventData"></param>
+    public void OnPointerDown(PointerEventData eventData)
+    {
+    }
+
+    /// <summary>
+    /// Método responsável por calcular e retornar um Vector3 para movimentar o player
+    /// </summary>
+    /// <param name="offset"></param>
+    /// <returns></returns>
+    public Vector3 MovementInput(Vector2 offset)
+    {
+        float x = Mathf.Abs(offset.x) > dragThreshold ? offset.x : 0;
+        float z = Mathf.Abs(offset.y) > dragThreshold ? offset.y : 0;
+        return new Vector3(x, 0, z);
+    }
+    #endregion
+}
