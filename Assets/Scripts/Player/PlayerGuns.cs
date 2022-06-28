@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerGuns : MonoBehaviour
 {
-    [SerializeField] private Gun playerGun;
+    [SerializeField] private GunLogic playerGun;
     [SerializeField] private Transform playerArm;
 
     private bool haveGun;
@@ -14,6 +14,9 @@ public class PlayerGuns : MonoBehaviour
         
     }
 
+    private void PickUpGun()
+    {
 
+    }
 
 }

@@ -7,24 +7,33 @@ public class BulletPooling : MonoBehaviour
     
     [SerializeField] private BulletLogic bulletPrefab;
 
-    [SerializeField] private Queue<GameObject> bulletQueue = new Queue<GameObject>(35);
+    [SerializeField] private Queue<BulletLogic> bulletQueue = new Queue<BulletLogic>(35);
     int capacity = 35;
-    //[SerializeField] private List<Bullet> bulletList = new List<Bullet>(35);
+
+    public static BulletPooling instance;
     void Awake()
     {
+        if (instance != null)
+        {
+            Destroy(instance);
+        }
+        else
+            instance = this;
+
         for (int i = 0; i < capacity; i++)
         {
-            GameObject aux = Instantiate(bulletPrefab.gameObject);
-            aux.SetActive(false);
+            BulletLogic aux = Instantiate(bulletPrefab, this.transform);
+            aux.gameObject.SetActive(false);
             bulletQueue.Enqueue(aux);
         }
     }
 
-    public GameObject BulletSpawn()
+    public GameObject BulletSpawn(Transform bulletSpawn)
     {
         if (bulletQueue.Count != 0)
         {
-            GameObject aux = bulletQueue.Dequeue();
+            GameObject aux = bulletQueue.Dequeue().gameObject;
+            aux.transform.position = bulletSpawn.position;
             aux.SetActive(true);
             return aux;
         }
@@ -40,8 +49,9 @@ public class BulletPooling : MonoBehaviour
     {
         if (bulletQueue.Count != capacity)
         {
+            BulletLogic aux = bulletObject.GetComponent<BulletLogic>();
             bulletObject.SetActive(false);
-            bulletQueue.Enqueue(bulletObject);
+            bulletQueue.Enqueue(aux);
         }
         else
             return ;

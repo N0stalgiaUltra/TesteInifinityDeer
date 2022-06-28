@@ -6,7 +6,7 @@ public class GunLogic : MonoBehaviour
 {
     [SerializeField] private Gun gunData;
     [SerializeField] private Transform bulletSpawn;
-    
+    [SerializeField] private ParticleSystem muzzleFire;
     public int ammo;
     
     private float nextFire;
@@ -31,8 +31,9 @@ public class GunLogic : MonoBehaviour
 
         if (ammo > 0)
         {
+            GameObject a = BulletPooling.instance.BulletSpawn(bulletSpawn);
+            muzzleFire.Play();
             ammo--;
-            print("Atirando");
         }
         else
             StartCoroutine(Reload());

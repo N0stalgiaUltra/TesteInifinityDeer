@@ -4,16 +4,12 @@ using UnityEngine;
 
 public class BulletLogic : MonoBehaviour
 {
+    [SerializeField] private Rigidbody rbBullet;
     [SerializeField] private float speed;
 
-    void Start()
+    void FixedUpdate()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if(gameObject.activeSelf)
+            rbBullet.AddForce(Vector3.forward * speed, ForceMode.Impulse);
     }
 }
