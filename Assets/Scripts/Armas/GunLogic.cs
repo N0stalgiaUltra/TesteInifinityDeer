@@ -8,7 +8,7 @@ public class GunLogic : MonoBehaviour
     [SerializeField] private Transform bulletSpawn;
     [SerializeField] private ParticleSystem muzzleFire;
     public int ammo;
-    
+
     private float nextFire;
     void Start()
     {
@@ -19,18 +19,16 @@ public class GunLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (Input.GetButton("Fire1") && Time.time > nextFire)
-        {
-            nextFire = Time.time + gunData.fireRate;
-            Shoot();
-        }   
+        
+        
+           
     }
 
     public void Shoot() {
 
-        if (ammo > 0)
+        if (ammo > 0 && Time.time > nextFire)
         {
+            nextFire = Time.time + gunData.fireRate;
             GameObject a = BulletPooling.instance.BulletSpawn(bulletSpawn);
             muzzleFire.Play();
             ammo--;

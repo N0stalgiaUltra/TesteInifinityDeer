@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class BulletCollider : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void OnBecameInvisible()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        this.gameObject.SetActive(false);
+        BulletPooling.instance.ReplenishQueue(this.gameObject);
     }
 }

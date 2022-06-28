@@ -21,12 +21,15 @@ public class JoystickUI : MonoBehaviour, IPointerUpHandler, IPointerDownHandler 
 
 
     private Vector3 moveInput;
+    public delegate void ShootAction();
+    public static event ShootAction playerShooted;
 
     [SerializeField] private Button shootButton;
     [SerializeField] private Button healButton;
 
     private void Start()
     {
+        shootButton.onClick.AddListener(ShootClicked);
     }
 
     #region Movimento via AnalogStickUI
@@ -82,5 +85,9 @@ public class JoystickUI : MonoBehaviour, IPointerUpHandler, IPointerDownHandler 
     }
     #endregion
 
- 
+    private void ShootClicked()
+    {
+        playerShooted?.Invoke();
+    }
+
 }
