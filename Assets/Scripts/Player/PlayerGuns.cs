@@ -8,12 +8,12 @@ public class PlayerGuns : MonoBehaviour
     [SerializeField] private Transform playerArm;
     //[SerializeField] private JoystickUI joystickUI;
 
-    private bool haveGun;
-
+    [SerializeField] bool canPick;
+    [SerializeField] private GameObject aux;
     private void Start()
     {
         JoystickUI.playerShooted += PlayerShoot;
-        JoystickUI.playerShooted += PickUpGun;
+        JoystickUI.playerPicked += PickUpGun;
     }
 
     private void PlayerShoot()
@@ -24,13 +24,34 @@ public class PlayerGuns : MonoBehaviour
         }
 
     }
-
+    private void FixedUpdate()
+    {
+        if (playerGun != null)
+        {
+            playerGun.transform.position = playerArm.position;
+            playerGun.transform.rotation = playerArm.rotation;
+        }
+    }
     private void PickUpGun()
     {
-        if(playerGun == null)
+        if (canPick)
         {
-            print("pega a arma do chao");
+            playerGun = aux.GetComponent<GunLogic>();
+
+            playerGun.transform.position = playerArm.position;
+            playerGun.transform.rotation = playerArm.rotation;
+            playerGun.transform.parent = playerArm;
+            aux = null;
+            canPick = false;
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Gun") && playerGun == null)
+        {
+            canPick = true;
+            aux = other.gameObject;
+        }
+    }
 }

@@ -25,6 +25,7 @@ public class BulletPooling : MonoBehaviour
             BulletLogic aux = Instantiate(bulletPrefab, this.transform);
             aux.gameObject.SetActive(false);
             bulletQueue.Enqueue(aux);
+            
         }
     }
 
@@ -32,8 +33,13 @@ public class BulletPooling : MonoBehaviour
     {
         if (bulletQueue.Count != 0)
         {
+            
             GameObject aux = bulletQueue.Dequeue().gameObject;
+            aux.GetComponent<BulletLogic>().playerTransform = bulletSpawn;
             aux.transform.position = bulletSpawn.position;
+            aux.transform.rotation = bulletSpawn.rotation;
+            aux.transform.parent = bulletSpawn;
+
             aux.SetActive(true);
             return aux;
         }

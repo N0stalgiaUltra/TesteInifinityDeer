@@ -129,6 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rbBullet: {fileID: 1677125314100462037}
   speed: 50
+  playerTransform: {fileID: 0}
 --- !u!114 &9052702120192006524
 MonoBehaviour:
   m_ObjectHideFlags: 0

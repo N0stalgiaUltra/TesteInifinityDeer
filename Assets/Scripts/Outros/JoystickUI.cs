@@ -21,15 +21,22 @@ public class JoystickUI : MonoBehaviour, IPointerUpHandler, IPointerDownHandler 
 
 
     private Vector3 moveInput;
+    
     public delegate void ShootAction();
     public static event ShootAction playerShooted;
 
+    public delegate void PickUpAction();
+    public static event PickUpAction playerPicked;
+
+    public delegate void HealAction();
+    public static event HealAction playerHealed;
     [SerializeField] private Button shootButton;
     [SerializeField] private Button healButton;
 
     private void Start()
     {
         shootButton.onClick.AddListener(ShootClicked);
+        healButton.onClick.AddListener(HealClicked);
     }
 
     #region Movimento via AnalogStickUI
@@ -58,7 +65,7 @@ public class JoystickUI : MonoBehaviour, IPointerUpHandler, IPointerDownHandler 
             );
         offset = Vector2.ClampMagnitude(offset, dragOffsetDistance) / dragOffsetDistance;
         movementJoystick.anchoredPosition = offset * dragMovementDistance;
-        print(offset);
+        
         moveInput = MovementInput(offset);
         OnMove?.Invoke(moveInput);
     }
@@ -85,9 +92,17 @@ public class JoystickUI : MonoBehaviour, IPointerUpHandler, IPointerDownHandler 
     }
     #endregion
 
+    #region Ação dos Botões de Tiro/Pegar arma e Cura
     private void ShootClicked()
     {
         playerShooted?.Invoke();
+        playerPicked?.Invoke();
     }
 
+    private void HealClicked()
+    {
+        playerHealed?.Invoke();
+    }
+
+    #endregion
 }

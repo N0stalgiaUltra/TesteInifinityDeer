@@ -16,14 +16,6 @@ public class GunLogic : MonoBehaviour
         ammo = gunData.ammo;   
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-        
-           
-    }
-
     public void Shoot() {
 
         if (ammo > 0 && Time.time > nextFire)

@@ -6,10 +6,11 @@ public class BulletLogic : MonoBehaviour
 {
     [SerializeField] private Rigidbody rbBullet;
     [SerializeField] private float speed;
+    public Transform playerTransform;
 
     void FixedUpdate()
     {
         if(gameObject.activeSelf)
-            rbBullet.AddForce(Vector3.forward * speed, ForceMode.Impulse);
+            rbBullet.AddForce(playerTransform.transform.forward * speed, ForceMode.Impulse);
     }
 }
