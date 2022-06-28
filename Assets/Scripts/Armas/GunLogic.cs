@@ -6,8 +6,7 @@ public class GunLogic : MonoBehaviour
 {
     [SerializeField] private Gun gunData;
     [SerializeField] private Transform bulletSpawn;
-    [SerializeField] private Transform gunSpawn;
-
+    
     public int ammo;
     
     private float nextFire;
