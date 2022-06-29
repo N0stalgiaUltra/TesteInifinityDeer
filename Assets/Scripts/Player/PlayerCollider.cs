@@ -2,17 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCollider : MonoBehaviour
+public class PlayerCollider : PlayerHealth, ICollider
 {
-    // Start is called before the first frame update
-    void Start()
+    int damage;
+    
+    public void GetHit()
     {
-        
+        Damage(damage);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.CompareTag("Inimigo"))
+        {
+            damage = other.GetComponent<EnemyAttack>().EnemyDamage;
+            GetHit();
+        }
     }
 }

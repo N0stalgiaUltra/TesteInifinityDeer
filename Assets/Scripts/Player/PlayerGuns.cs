@@ -57,6 +57,7 @@ public class PlayerGuns : MonoBehaviour
             playerGun.transform.parent = playerArm;
 
             aux = null;
+            canPick = false;
         }
         else return;
     }

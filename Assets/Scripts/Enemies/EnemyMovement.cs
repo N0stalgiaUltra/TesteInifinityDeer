@@ -8,7 +8,6 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private GameObject playerTest;
 
-    float distance = 0f;
     // Start is called before the first frame update
     void Start()
     {

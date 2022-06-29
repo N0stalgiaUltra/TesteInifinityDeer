@@ -7,7 +7,10 @@ public class EnemyAttack : MonoBehaviour
 
     [SerializeField] private EnemyData enemyData;
     [SerializeField] private GameObject playerPrefab;
-    // Start is called before the first frame update
+
+    public int EnemyDamage { get => enemyData.damage; }
+   
+
     void Start()
     {
         

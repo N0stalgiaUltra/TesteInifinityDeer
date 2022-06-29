@@ -2,17 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHealth : MonoBehaviour
+public class PlayerHealth : MonoBehaviour, IHealth
 {
-    // Start is called before the first frame update
-    void Start()
+    private int playerHealth;
+    public int health => playerHealth;
+
+    public void Damage(int value)
     {
-        
+        if (playerHealth > 0)
+            playerHealth -= value;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Heal(int value)
     {
-        
+        if (playerHealth > 0)
+            playerHealth += value;
     }
 }
