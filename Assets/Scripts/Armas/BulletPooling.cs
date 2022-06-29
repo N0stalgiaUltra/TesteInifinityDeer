@@ -29,6 +29,11 @@ public class BulletPooling : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Usado para retirar um objeto da fila e ativá-lo na cena
+    /// </summary>
+    /// <param name="bulletSpawn"> transform que vai ser referencia para a instância </param>
+    /// <returns></returns>
     public GameObject BulletSpawn(Transform bulletSpawn)
     {
         if (bulletQueue.Count != 0)
@@ -51,6 +56,10 @@ public class BulletPooling : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Usado para repor os objetos na fila
+    /// </summary>
+    /// <param name="bulletObject">objeto a ser adicionado</param>
     public void ReplenishQueue(GameObject bulletObject)
     {
         if (bulletQueue.Count != capacity)

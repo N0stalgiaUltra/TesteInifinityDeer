@@ -10,26 +10,42 @@ public class GunLogic : MonoBehaviour
     public int ammo;
 
     private float nextFire;
+    private bool canShoot;
     void Start()
     {
         nextFire = 0f;
         ammo = gunData.ammo;   
     }
-
+    private void Update()
+    {
+        if (Time.time > nextFire)
+        {
+            canShoot = true;
+            nextFire = Time.time + gunData.fireRate;
+        }
+    }
+    /// <summary>
+    /// Usado para fazer o player atirar
+    /// </summary>
     public void Shoot() {
 
-        if (ammo > 0 && Time.time > nextFire)
+        if (ammo > 0 && canShoot)
         {
-            nextFire = Time.time + gunData.fireRate;
-            GameObject a = BulletPooling.instance.BulletSpawn(bulletSpawn);
+            BulletPooling.instance.BulletSpawn(bulletSpawn);
             muzzleFire.Play();
             ammo--;
+            canShoot = false;
         }
-        else
+        else if (ammo <= 0)
             StartCoroutine(Reload());
-        
+        else
+            return;
     }
 
+    /// <summary>
+    /// Usado para recarregar a arma do player.
+    /// </summary>
+    /// <returns>Espera o tempo de reload e retorna com o numero de munições.</returns>
     IEnumerator Reload()
     {
         print("Recarregando");

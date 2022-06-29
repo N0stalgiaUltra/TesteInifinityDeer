@@ -8,35 +8,43 @@ using UnityEngine.Events;
 
 public class JoystickUI : MonoBehaviour, IPointerUpHandler, IPointerDownHandler , IDragHandler
 {
+
     [SerializeField] private RectTransform movementJoystick;
 
+    [Header("JoystickProperties")]
     [SerializeField]
     private float dragThreshold = 0.6f;
     [SerializeField]
     private int dragMovementDistance = 30;
     [SerializeField]
-    private int dragOffsetDistance = 100; 
+    private int dragOffsetDistance = 100;
 
+
+    #region Events
+    private Vector3 moveInput;
     public event Action<Vector3> OnMove;
 
-
-    private Vector3 moveInput;
-    
     public delegate void ShootAction();
     public static event ShootAction playerShooted;
 
     public delegate void PickUpAction();
     public static event PickUpAction playerPicked;
+    
 
     public delegate void HealAction();
     public static event HealAction playerHealed;
+    #endregion
+
+    [Header("Action Buttons")]
     [SerializeField] private Button shootButton;
+    [SerializeField] private Button pickButton;
     [SerializeField] private Button healButton;
 
     private void Start()
     {
         shootButton.onClick.AddListener(ShootClicked);
         healButton.onClick.AddListener(HealClicked);
+        pickButton.onClick.AddListener(PickClicked);
     }
 
     #region Movimento via AnalogStickUI
@@ -96,7 +104,6 @@ public class JoystickUI : MonoBehaviour, IPointerUpHandler, IPointerDownHandler 
     private void ShootClicked()
     {
         playerShooted?.Invoke();
-        playerPicked?.Invoke();
     }
 
     private void HealClicked()
@@ -104,5 +111,9 @@ public class JoystickUI : MonoBehaviour, IPointerUpHandler, IPointerDownHandler 
         playerHealed?.Invoke();
     }
 
+    private void PickClicked()
+    {
+        playerPicked?.Invoke();
+    }
     #endregion
 }
