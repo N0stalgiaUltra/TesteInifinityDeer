@@ -15,7 +15,8 @@ public class PlayerCollider : PlayerHealth, ICollider
     {
         if (other.CompareTag("Inimigo"))
         {
-            damage = other.GetComponent<EnemyAttack>().EnemyDamage;
+            damage = other.transform.parent.
+                GetComponentInParent<EnemyAttack>().EnemyDamage;
             GetHit();
         }
     }

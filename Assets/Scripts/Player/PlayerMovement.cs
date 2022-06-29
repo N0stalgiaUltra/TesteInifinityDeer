@@ -8,12 +8,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Rigidbody rb;
     [SerializeField] private float movementVelocity;
 
-    [SerializeField] JoystickUI joystickUI;
     Vector3 movement;
     [SerializeField] float rotationSpeed;
     void Start()
     {
-        joystickUI.OnMove += Move;
+        JoystickUI.OnMove += Move;
     }
 
     private void Move(Vector3 movementInput)

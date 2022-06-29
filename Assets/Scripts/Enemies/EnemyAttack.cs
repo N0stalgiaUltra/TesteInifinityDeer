@@ -6,7 +6,7 @@ public class EnemyAttack : MonoBehaviour
 {
 
     [SerializeField] private EnemyData enemyData;
-    [SerializeField] private GameObject playerPrefab;
+    private GameObject playerPrefab;
 
     public int EnemyDamage { get => enemyData.damage; }
    

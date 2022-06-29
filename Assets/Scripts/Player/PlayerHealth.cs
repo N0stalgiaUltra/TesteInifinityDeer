@@ -11,6 +11,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
     {
         if (playerHealth > 0)
             playerHealth -= value;
+        print($"Player perdeu {value} de HP");
     }
 
     public void Heal(int value)

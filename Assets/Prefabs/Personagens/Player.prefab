@@ -361,8 +361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1740893412}
-  movementVelocity: 5
-  joystickUI: {fileID: 0}
+  movementVelocity: 7.5
   rotationSpeed: 720
 --- !u!1 &1482382854480700
 GameObject:
@@ -696,7 +695,7 @@ GameObject:
   - component: {fileID: 1898681749}
   m_Layer: 0
   m_Name: Body_jnt
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -836,8 +835,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerGun: {fileID: 0}
   playerArm: {fileID: 849641504}
-  canPick: 0
-  aux: {fileID: 0}
 --- !u!65 &3595447230957224068
 BoxCollider:
   m_ObjectHideFlags: 0

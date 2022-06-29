@@ -6,12 +6,12 @@ using UnityEngine.AI;
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] private NavMeshAgent agent;
-    [SerializeField] private GameObject playerTest;
+    private GameObject playerTest;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerTest = GameManager.instance.ReturnNearestPlayer(this.transform);
     }
 
     private void Update()
@@ -25,8 +25,6 @@ public class EnemyMovement : MonoBehaviour
     {
         agent.SetDestination(playerTest.transform.position);
         transform.LookAt(playerTest.transform);
-
-        //agent.SetDestination(GameManager.instance.ReturnNearestPlayer(this.transform).transform.position);
     }
 
     private void Attack()

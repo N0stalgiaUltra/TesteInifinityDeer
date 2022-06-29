@@ -22,7 +22,7 @@ public class JoystickUI : MonoBehaviour, IPointerUpHandler, IPointerDownHandler 
 
     #region Events
     private Vector3 moveInput;
-    public event Action<Vector3> OnMove;
+    public static event Action<Vector3> OnMove;
 
     public delegate void ShootAction();
     public static event ShootAction playerShooted;

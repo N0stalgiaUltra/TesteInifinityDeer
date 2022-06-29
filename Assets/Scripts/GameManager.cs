@@ -14,18 +14,11 @@ public class GameManager : MonoBehaviour
             Destroy(instance);
         else
             instance = this;
-    }
-    void Start()
-    {
+
         playersList = GameObject.FindGameObjectsWithTag("Player").ToList();
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     
     public GameObject ReturnNearestPlayer(Transform currEnemy)
     {
