@@ -37,30 +37,35 @@ public class PlayerGuns : MonoBehaviour
     }
 
     /// <summary>
-    /// Usado para fazer o player pegar uma arma no chão ou substituir a arma atual
+    /// Usado para fazer o player pegar uma arma no chão ou substituir a arma atual (Chamado ao clicar no botão de "PICK")
     /// </summary>
     private void PickUpGun()
     {
-        if(playerGun != null)
+        if (canPick)
         {
-            playerGun.transform.SetParent(null);
-            Destroy(playerGun.gameObject);
-            //playerGun = null;
+            if (playerGun != null)
+            {
+                playerGun.transform.SetParent(null);
+                Destroy(playerGun.gameObject);
+                //playerGun = null;
+            }
+
+            playerGun = aux.GetComponent<GunLogic>();
+
+            playerGun.transform.position = playerArm.position;
+            playerGun.transform.rotation = playerArm.rotation;
+            playerGun.transform.parent = playerArm;
+
+            aux = null;
         }
-
-        playerGun = aux.GetComponent<GunLogic>();
-
-        playerGun.transform.position = playerArm.position;
-        playerGun.transform.rotation = playerArm.rotation;
-        playerGun.transform.parent = playerArm;
-            
-        aux = null;
+        else return;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Gun"))
         {
+            canPick = true;
             aux = other.gameObject;
         }
     }

@@ -7,10 +7,11 @@ public class GunLogic : MonoBehaviour
     [SerializeField] private Gun gunData;
     [SerializeField] private Transform bulletSpawn;
     [SerializeField] private ParticleSystem muzzleFire;
-    public int ammo;
-
+    
+    private int ammo;
     private float nextFire;
     private bool canShoot;
+    public int Damage { get => gunData.damage; }
     void Start()
     {
         nextFire = 0f;

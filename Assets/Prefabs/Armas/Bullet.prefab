@@ -93,7 +93,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8569768291389659324}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2
@@ -129,6 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rbBullet: {fileID: 1677125314100462037}
   speed: 50
+  damage: 0
   playerTransform: {fileID: 0}
 --- !u!114 &9052702120192006524
 MonoBehaviour:
@@ -142,3 +143,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7451df52f34a1814aaee921d2306a720, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletLogic: {fileID: -1078869583201636160}

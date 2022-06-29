@@ -8,6 +8,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private GameObject playerTest;
 
+    float distance = 0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +17,9 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
-        Move();
+        if (Distance(playerTest.transform) <= 3.5f) Attack();
+        else Move();
+
     }
 
     private void Move()
@@ -33,4 +36,10 @@ public class EnemyMovement : MonoBehaviour
         transform.LookAt(playerTest.transform);
 
     }
+    private float Distance(Transform player)
+    {
+        //distancia pra atacar é 3;
+        return Vector3.Distance(this.transform.position, player.position);
+    }
+
 }

@@ -18,11 +18,7 @@ public class EnemyAttack : MonoBehaviour
     {
         playerPrefab = GameManager.instance.ReturnNearestPlayer(this.transform);
     }
-    private float Distance(Transform player)
-    {
-        //distancia pra atacar é 3;
-        return Vector3.Distance(this.transform.position, player.position);
-    }
+
     private void Attack()
     {
         //ativa animação

@@ -510,6 +510,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ZumbiPadrao
       objectReference: {fileID: 0}
+    - target: {fileID: 1668889793890766, guid: a0fc0c0901c9e2148a368c8c5f79379f, type: 3}
+      propertyPath: m_TagString
+      value: Inimigo
+      objectReference: {fileID: 0}
     - target: {fileID: 4941635705825534, guid: a0fc0c0901c9e2148a368c8c5f79379f, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -561,6 +565,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0fc0c0901c9e2148a368c8c5f79379f, type: 3}
+--- !u!1 &697114034 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1668889793890766, guid: a0fc0c0901c9e2148a368c8c5f79379f,
+    type: 3}
+  m_PrefabInstance: {fileID: 697114033}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &697114035 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1394952769335746, guid: a0fc0c0901c9e2148a368c8c5f79379f,
@@ -596,13 +606,26 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 697114035}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f26aadcd9a95784093c6cb9f47dba06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 697114037}
   playerTest: {fileID: 2082398499}
+--- !u!114 &697114043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 697114034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dcad090a04a4994b85ff3f322f7e564, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyData: {fileID: 11400000, guid: 91f9015bb1e810347af6386628c36278, type: 2}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1114,7 +1137,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 76
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -1139,7 +1162,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 9.919998, y: 9.750003, z: -12.529532}
+  m_LocalPosition: {x: 9.919998, y: 9.750003, z: -12.230001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1866,7 +1889,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1627669201}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 9.919998, y: 9.750003, z: -12.529532}
+  m_LocalPosition: {x: 9.919998, y: 9.750003, z: -12.230001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1375088768}
