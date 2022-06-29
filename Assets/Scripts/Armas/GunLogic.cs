@@ -38,8 +38,7 @@ public class GunLogic : MonoBehaviour
         }
         else if (ammo <= 0)
             StartCoroutine(Reload());
-        else
-            return;
+
     }
 
     /// <summary>
