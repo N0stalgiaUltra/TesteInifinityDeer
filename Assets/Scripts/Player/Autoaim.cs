@@ -19,8 +19,7 @@ public class Autoaim : MonoBehaviour
     {
         
     }
-    //0,1,2
-    //2
+
     private void AutoAim()
     {
         if (enemiesList.Count != 0)

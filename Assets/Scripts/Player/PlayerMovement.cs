@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Rigidbody rb;
     [SerializeField] private float movementVelocity;
 
+    [SerializeField] private Animator playerAnim;
+
     Vector3 movement;
     [SerializeField] float rotationSpeed;
     void Start()
@@ -18,6 +20,13 @@ public class PlayerMovement : MonoBehaviour
     private void Move(Vector3 movementInput)
     {
         movement = movementInput;
+        if(Mathf.Abs(movementInput.x) > Mathf.Epsilon || Mathf.Abs(movementInput.z) > Mathf.Epsilon)
+        {
+            playerAnim.SetInteger("Move", 1);
+        }
+        else
+            playerAnim.SetInteger("Move", 0);
+
         if (movement != Vector3.zero)
         {
             Quaternion toRotation = Quaternion.LookRotation(movement, Vector3.up);
@@ -30,9 +39,8 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         rb.velocity = movement * movementVelocity;
-
-
     }
 
+    
 
 }
