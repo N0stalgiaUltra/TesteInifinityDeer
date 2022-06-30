@@ -6,6 +6,7 @@ public class EnemyCollider : EnemyHealth, ICollider
 {
 
     private BulletLogic bullet;
+    private string colliderTag;
     public void GetHit()
     {
         
@@ -13,10 +14,7 @@ public class EnemyCollider : EnemyHealth, ICollider
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Bullet"))
-        {
-            GetHit();
-        }
+        colliderTag = other.tag;   
     }
 
 }

@@ -19,14 +19,17 @@ public class Autoaim : MonoBehaviour
     {
         
     }
-
+    //0,1,2
+    //2
     private void AutoAim()
     {
         if (enemiesList.Count != 0)
         {
+            if (count >= enemiesList.Count)
+                count = 0;
+
             player.transform.LookAt(enemiesList[count].transform);
             count++;
-            //count = count >= enemiesList.Count ? 0 : count++;
         }
         else return;        
     }
