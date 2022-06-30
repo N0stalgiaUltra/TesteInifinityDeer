@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
 
-public class JoystickUI : MonoBehaviour, IPointerUpHandler, IPointerDownHandler , IDragHandler
+public class InputManager : MonoBehaviour, IPointerUpHandler, IPointerDownHandler , IDragHandler
 {
 
     [SerializeField] private RectTransform movementJoystick;
@@ -30,7 +30,9 @@ public class JoystickUI : MonoBehaviour, IPointerUpHandler, IPointerDownHandler 
     public delegate void PickUpAction();
     public static event PickUpAction playerPicked;
     
-
+    public delegate void AutoAimAction();
+    public static event AutoAimAction playerAimed;
+    
     public delegate void HealAction();
     public static event HealAction playerHealed;
     #endregion
@@ -39,12 +41,15 @@ public class JoystickUI : MonoBehaviour, IPointerUpHandler, IPointerDownHandler 
     [SerializeField] private Button shootButton;
     [SerializeField] private Button pickButton;
     [SerializeField] private Button healButton;
+    [SerializeField] private Button aimButton;
 
     private void Start()
     {
         shootButton.onClick.AddListener(ShootClicked);
         healButton.onClick.AddListener(HealClicked);
         pickButton.onClick.AddListener(PickClicked);
+        aimButton.onClick.AddListener(AimClicked);
+        
     }
 
     #region Movimento via AnalogStickUI
@@ -114,6 +119,10 @@ public class JoystickUI : MonoBehaviour, IPointerUpHandler, IPointerDownHandler 
     private void PickClicked()
     {
         playerPicked?.Invoke();
+    }
+    private void AimClicked()
+    {
+        playerAimed?.Invoke();
     }
     #endregion
 }

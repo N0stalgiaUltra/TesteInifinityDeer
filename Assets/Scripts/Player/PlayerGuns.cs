@@ -11,8 +11,8 @@ public class PlayerGuns : MonoBehaviour
     private GameObject aux;
     private void Start()
     {
-        JoystickUI.playerShooted += PlayerShoot;
-        JoystickUI.playerPicked += PickUpGun;
+        InputManager.playerShooted += PlayerShoot;
+        InputManager.playerPicked += PickUpGun;
     }
     private void FixedUpdate()
     {

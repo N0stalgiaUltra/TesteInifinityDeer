@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float rotationSpeed;
     void Start()
     {
-        JoystickUI.OnMove += Move;
+        InputManager.OnMove += Move;
     }
 
     private void Move(Vector3 movementInput)

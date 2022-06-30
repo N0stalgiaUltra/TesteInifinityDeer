@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Gun
   - Inimigo
+  - PickUpArea
+  - InimigoPadrao
+  - InimigoForte
+  - InimigoRapido
+  - Autoaim
   layers:
   - Default
   - TransparentFX
