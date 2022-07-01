@@ -21,7 +21,7 @@ public class PlayerCollider : PlayerHealth, ICollider
         {
             if (enemyTag.Equals(e.nameEnemy))
             {
-                Damage(e.data.damage);
+                Damage(e.data.damage / 10);
                 Debug.Log($"Dano: {e.data.damage}, Inimigo: {e.nameEnemy}");
             }
         }

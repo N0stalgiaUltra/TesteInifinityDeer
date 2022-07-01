@@ -7,12 +7,14 @@ public class EnemyMovement : EnemyAttack
 {
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private Animator enemyAnim;
-    private GameObject playerTest;
+    [SerializeField] private GameObject playerTest;
     private bool isMoving;
 
     public delegate void EnemyAttacked();
 
-    [SerializeField] private float counter;
+    private float counter;
+    [SerializeField] private float attackRate = 0.2f;
+    private float attackCounter = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +33,7 @@ public class EnemyMovement : EnemyAttack
             counter = 0f;
         }
 
-        if (Distance(playerTest.transform) <= 2.5f) Attack(playerTest);
+        if (Distance(playerTest.transform) <= 2f) AttackMotion();
         else Move();
 
         enemyAnim.SetBool("Move", isMoving);
@@ -45,20 +47,25 @@ public class EnemyMovement : EnemyAttack
         isMoving = true;
     }
 
-    protected override void Attack(GameObject player)
+    public void AttackMotion()
     {
         isMoving = false;
-        
         agent.SetDestination(this.transform.position);
         transform.LookAt(playerTest.transform);
 
-        if (Distance(playerTest.transform) < 3f)
-            base.Attack(playerTest);
+        if (Distance(playerTest.transform) <= 2.5f && Time.time > attackCounter)
+        {
+            enemyAnim.SetTrigger("Attack");
+            attackCounter = Time.time + attackRate;
+        }
+    }
 
+    public void DamagePlayer()
+    {
+        base.Attack(playerTest);
     }
     private float Distance(Transform player)
     {
-        //distancia pra atacar é 3;
         return Vector3.Distance(this.transform.position, player.position);
     }
 

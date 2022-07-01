@@ -6,7 +6,6 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> playersList = new List<GameObject>();
-    private GameObject[] enemies;
 
     public static GameManager instance;
     private void Awake()
@@ -17,7 +16,6 @@ public class GameManager : MonoBehaviour
             instance = this;
 
         playersList = GameObject.FindGameObjectsWithTag("Player").ToList();
-        enemies = GameObject.FindGameObjectsWithTag("InimigoPadrao");
     }
 
     public GameObject ReturnNearestPlayer(Transform currEnemy)
@@ -36,7 +34,7 @@ public class GameManager : MonoBehaviour
             if (currDist <= minDist)
             {
                 minDist = currDist;
-                aux = playersList[i].gameObject;
+                aux = playersList[i];
             }
 
         }

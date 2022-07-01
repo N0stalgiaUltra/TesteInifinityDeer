@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Rigidbody rb;
     [SerializeField] private float movementVelocity;
 
-    [SerializeField] private Animator playerAnim;
+    [SerializeField] private PlayerAnimation playerAnim;
 
     Vector3 movement;
     [SerializeField] float rotationSpeed;
@@ -22,10 +22,10 @@ public class PlayerMovement : MonoBehaviour
         movement = movementInput;
         if(Mathf.Abs(movementInput.x) > Mathf.Epsilon || Mathf.Abs(movementInput.z) > Mathf.Epsilon)
         {
-            playerAnim.SetInteger("Move", 1);
+            playerAnim.Move(true);
         }
         else
-            playerAnim.SetInteger("Move", 0);
+            playerAnim.Move(false);
 
         if (movement != Vector3.zero)
         {
@@ -34,13 +34,8 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-
-    // Update is called once per frame
     void FixedUpdate()
     {
         rb.velocity = movement * movementVelocity;
     }
-
-    
-
 }

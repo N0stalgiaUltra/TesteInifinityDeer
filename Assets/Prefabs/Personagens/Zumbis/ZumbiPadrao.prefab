@@ -579,7 +579,7 @@ GameObject:
   - component: {fileID: 4634032008162064}
   m_Layer: 0
   m_Name: Body_jnt
-  m_TagString: Untagged
+  m_TagString: InimigoPadrao
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -756,8 +756,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.4963484, y: 1, z: 1.0127273}
-  m_Center: {x: 0.057270527, y: 0, z: -0.12090516}
+  m_Size: {x: 1, y: 2.45, z: 1}
+  m_Center: {x: 0.057270527, y: 1.24, z: -0.12090516}
 --- !u!95 &867274814960438382
 Animator:
   serializedVersion: 3
@@ -850,5 +850,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f26aadcd9a95784093c6cb9f47dba06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyData: {fileID: 11400000, guid: 91f9015bb1e810347af6386628c36278, type: 2}
   agent: {fileID: 7542520616695737761}
   enemyAnim: {fileID: 867274814960438382}
+  counter: 0

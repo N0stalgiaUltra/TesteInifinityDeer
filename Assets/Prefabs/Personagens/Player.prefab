@@ -370,7 +370,7 @@ Transform:
   - {fileID: 849641504}
   - {fileID: 1852971721}
   m_Father: {fileID: 553291143183918517}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1482382854480700
 GameObject:
@@ -396,12 +396,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1482382854480700}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -2.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4610746654156704}
-  m_RootOrder: 1
+  m_Father: {fileID: 553291143183918517}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &137480551158315556
 SkinnedMeshRenderer:
@@ -687,7 +687,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 553291143183918517}
-  - {fileID: 4985914806915658}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -798,6 +797,7 @@ GameObject:
   - component: {fileID: 1531238360}
   - component: {fileID: 5970702706286714227}
   - component: {fileID: 5293932635140775811}
+  - component: {fileID: 188525169}
   m_Layer: 0
   m_Name: PlayerRoot
   m_TagString: Player
@@ -816,6 +816,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 2.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 4985914806915658}
   - {fileID: 4637638718444056}
   m_Father: {fileID: 4610746654156704}
   m_RootOrder: 0
@@ -849,7 +850,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 10
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -882,7 +883,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 1531238361}
   movementVelocity: 10
-  playerAnim: {fileID: 1978942353007534934}
+  playerAnim: {fileID: 188525169}
   rotationSpeed: 720
 --- !u!114 &5970702706286714227
 MonoBehaviour:
@@ -896,6 +897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb152527a5ab3fa43a07a2a540c647b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerAnimation: {fileID: 188525169}
   enemyData:
   - nameEnemy: InimigoPadrao
     data: {fileID: 11400000, guid: 91f9015bb1e810347af6386628c36278, type: 2}
@@ -915,6 +917,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 492489b652a2ca74491d1d3d4ca25a74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerAnimation: {fileID: 188525169}
+--- !u!114 &188525169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6632070546994610450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62ff22ec3c6c6fa4888e2299728edcc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerAnim: {fileID: 1978942353007534934}
 --- !u!1 &6759264005630465754
 GameObject:
   m_ObjectHideFlags: 0
