@@ -22,12 +22,8 @@ public class EnemyAttack : MonoBehaviour
         playerPrefab = GameManager.instance.ReturnNearestPlayer(this.transform);
     }
 
-    private void Attack()
+    protected virtual void Attack(GameObject player)
     {
-        //ativa animação
-        //ataca
-        //se colidir, atribui dano
-        //se sair da distancia, para a anim de ataque
-        
+        print("base attack");
     }
 }

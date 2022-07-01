@@ -26,7 +26,6 @@ public class GameManager : MonoBehaviour
         float minDist = 0;
         GameObject aux = null;
 
-        //3,2,5
         for (int i = 0; i < playersList.Count; i++)
         {
             currDist = Vector3.Distance(currEnemy.position, playersList[i].transform.position);

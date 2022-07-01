@@ -11,9 +11,6 @@ TagManager:
   - InimigoForte
   - InimigoRapido
   - Autoaim
-  - ArmaPistola
-  - ArmaRevolver
-  - ArmaSMG
   layers:
   - Default
   - TransparentFX

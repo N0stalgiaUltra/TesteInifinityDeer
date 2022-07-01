@@ -26,10 +26,10 @@ public class PlayerCollider : PlayerHealth, ICollider
             }
         }
     }
-
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        enemyTag = other.tag;
+        enemyTag = collision.gameObject.tag;
         GetHit();
     }
+
 }
