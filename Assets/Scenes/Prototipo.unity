@@ -2030,63 +2030,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1531238357 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6632070546994610450, guid: c52a79c119f2bf7458b877bd309c04fe,
-    type: 3}
-  m_PrefabInstance: {fileID: 1898681747}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &1531238359
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1531238357}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 2.75, z: 1}
-  m_Center: {x: 0, y: -0.1, z: -0.97}
---- !u!114 &1531238360
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1531238357}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca1d99a952271a0468b297c8ea75dc9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 1531238361}
-  movementVelocity: 10
-  playerAnim: {fileID: 1531238362}
-  rotationSpeed: 720
---- !u!54 &1531238361
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1531238357}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 80
-  m_CollisionDetection: 0
---- !u!95 &1531238362 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 1978942353007534934, guid: c52a79c119f2bf7458b877bd309c04fe,
-    type: 3}
-  m_PrefabInstance: {fileID: 1898681747}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1627669201
 GameObject:
   m_ObjectHideFlags: 0
@@ -2573,14 +2516,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1898681749, guid: c52a79c119f2bf7458b877bd309c04fe, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1988411710, guid: c52a79c119f2bf7458b877bd309c04fe, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1884102019447498, guid: c52a79c119f2bf7458b877bd309c04fe, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2629,44 +2564,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4637638718444056, guid: c52a79c119f2bf7458b877bd309c04fe, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1978942353007534934, guid: c52a79c119f2bf7458b877bd309c04fe,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1898681749, guid: c52a79c119f2bf7458b877bd309c04fe, type: 3}
-    - {fileID: 1740893412, guid: c52a79c119f2bf7458b877bd309c04fe, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c52a79c119f2bf7458b877bd309c04fe, type: 3}
---- !u!1 &2082398499 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1451293854594130, guid: c52a79c119f2bf7458b877bd309c04fe,
-    type: 3}
-  m_PrefabInstance: {fileID: 1898681747}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &2082398500
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2082398499}
-  m_Enabled: 0
-  m_Avatar: {fileID: 9000000, guid: dbbc53a6bc8f5c64bb234194ce1380aa, type: 3}
-  m_Controller: {fileID: 9100000, guid: 45b1d24e3b1b58b41b0c01c4fe29be5d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &2088645796
 PrefabInstance:
   m_ObjectHideFlags: 0

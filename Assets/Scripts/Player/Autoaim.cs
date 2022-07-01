@@ -14,12 +14,6 @@ public class Autoaim : MonoBehaviour
         count = 0;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void AutoAim()
     {
         if (enemiesList.Count != 0)

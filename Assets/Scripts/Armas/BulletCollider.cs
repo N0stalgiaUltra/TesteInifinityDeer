@@ -1,15 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletCollider : MonoBehaviour, ICollider
 {
-    [SerializeField] private BulletLogic bulletLogic;
-    private EnemyHealth enemy;
-
     public void GetHit()
     {
-        enemy.Damage(bulletLogic.damage);
         DeactivateBullet();
     }
 
@@ -24,12 +21,7 @@ public class BulletCollider : MonoBehaviour, ICollider
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Inimigo"))
-        {
-            enemy = other.GetComponent<EnemyHealth>();
-            GetHit();
-            print("colidiu");
-        }
+        GetHit();
     }
 
 }

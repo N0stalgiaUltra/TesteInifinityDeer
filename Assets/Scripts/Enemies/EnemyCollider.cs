@@ -5,16 +5,23 @@ using UnityEngine;
 public class EnemyCollider : EnemyHealth, ICollider
 {
 
-    private BulletLogic bullet;
     private string colliderTag;
+    private int damage;
+
     public void GetHit()
     {
-        
+        Damage(damage);
     }
+
 
     private void OnTriggerEnter(Collider other)
     {
-        colliderTag = other.tag;   
+        colliderTag = other.tag;
+
+        if (colliderTag.Equals("Bullet"))
+            damage = other.GetComponent<BulletLogic>().damage;
+        
+        GetHit();
     }
 
 }
