@@ -26,14 +26,14 @@ public class EnemyHealth : MonoBehaviour, IHealth
         }
 
         if (Input.anyKeyDown)
-            Damage(50);
+            OnDeath();
     }
     public void Damage(int value)
     {
         if (this.enemyHealth > 0)
         {
             this.enemyHealth -= value;
-            Debug.Log($"Inimigo recebeu: {value} de dano! HP restante {enemyHealth}");
+
         }
 
     }

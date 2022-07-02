@@ -19,4 +19,9 @@ public class HudManager : MonoBehaviour
     {
         
     }
+
+    public void StartUi()
+    {
+        playerScore.text = $"{0}";
+    }
 }

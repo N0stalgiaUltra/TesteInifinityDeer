@@ -20,7 +20,7 @@ public class EnemyAI : MonoBehaviour
     void Start()
     {
         counter = 0f;
-        currentPlayer = GameManager.instance.ReturnNearestPlayer(this.transform);
+        currentPlayer = PlayerFinder.instance.ReturnNearestPlayer(this.transform);
     }
 
     private void Update()
@@ -29,7 +29,7 @@ public class EnemyAI : MonoBehaviour
 
         if(counter >= 5f)
         {
-            currentPlayer = GameManager.instance.ReturnNearestPlayer(this.transform);
+            currentPlayer = PlayerFinder.instance.ReturnNearestPlayer(this.transform);
             counter = 0f;
         }
 

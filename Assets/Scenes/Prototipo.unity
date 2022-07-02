@@ -995,6 +995,7 @@ GameObject:
   m_Component:
   - component: {fileID: 746253140}
   - component: {fileID: 746253139}
+  - component: {fileID: 746253141}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1014,7 +1015,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68dac8a7bc80ef14fba89fda72d7a47c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playersList: []
+  hordeManager: {fileID: 971563289}
+  hudManager: {fileID: 0}
 --- !u!4 &746253140
 Transform:
   m_ObjectHideFlags: 0
@@ -1029,6 +1031,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &746253141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 746253138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aaed181ad29da848b1532b12147b7bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playersList: []
 --- !u!1001 &821472065
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1673,8 +1688,6 @@ MonoBehaviour:
   hordeManager: {fileID: 971563289}
   enemiesType:
   - {fileID: 11400000, guid: 91f9015bb1e810347af6386628c36278, type: 2}
-  - {fileID: 11400000, guid: 668db36b098cd8f438cfeb5f8b9b87ac, type: 2}
-  - {fileID: 11400000, guid: 479420dbbc8382749b3150f335ba7579, type: 2}
   spawnChance: []
 --- !u!114 &971563289
 MonoBehaviour:
@@ -1688,9 +1701,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cef1fd66090841648be1c6168a57b691, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemySpawner: {fileID: 971563288}
   hordeNumber: 3
   initialEnemiesCount: 10
   fixEnemyIncrease: 5
+  actualRound: 0
+  killCount: 0
 --- !u!1 &1066697181
 GameObject:
   m_ObjectHideFlags: 0
