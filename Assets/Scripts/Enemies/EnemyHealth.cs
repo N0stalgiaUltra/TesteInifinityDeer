@@ -6,12 +6,27 @@ public class EnemyHealth : MonoBehaviour, IHealth
 {
     [SerializeField] private EnemyData enemyData;
 
-    private int enemyHealth { get => enemyData.health; set => enemyData.health = value; }
+    [SerializeField] private int enemyHealth;
     public int health => enemyHealth;
+    private EnemySpawner enemySpawner;
+    private GameObject enemyParent;
+
 
     private void Start()
     {
-        enemyHealth = enemyData.health; //pra quando o inimigo for desativado
+        enemyHealth = enemyData.health;
+        enemyParent = this.gameObject.transform.parent.gameObject;
+        enemySpawner = GetComponentInParent<EnemySpawner>();
+    }
+    private void Update()
+    {
+        if (enemyHealth <= 0)
+        {
+            OnDeath();
+        }
+
+        if (Input.anyKeyDown)
+            Damage(50);
     }
     public void Damage(int value)
     {
@@ -20,8 +35,13 @@ public class EnemyHealth : MonoBehaviour, IHealth
             this.enemyHealth -= value;
             Debug.Log($"Inimigo recebeu: {value} de dano! HP restante {enemyHealth}");
         }
-        //else
-        //    EnemyDie
+
+    }
+
+    private void OnDeath()
+    {
+        enemySpawner.DeactivateEnemy(enemyParent);
+        enemyHealth = enemyData.health;
     }
 
 }

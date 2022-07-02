@@ -56,7 +56,7 @@ public class EnemySpawner : MonoBehaviour
         return 0;
     }
         
-    private void ActivateEnemies()
+    public void ActivateEnemies()
     {
         int aux = hordeManager.EnemiesPerRound(hordeManager.actualRound-1);
         
@@ -66,9 +66,9 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    private void DeactivateEnemy(GameObject enemy)
+    public void DeactivateEnemy(GameObject enemy)
     {
-        enemy.SetActive(false);
+        enemy.gameObject.SetActive(false);
         enemyPool.Enqueue(enemy);
     }
 }

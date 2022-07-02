@@ -4,6 +4,6 @@ using UnityEngine;
 
 public interface IHealth
 {
-    public int health { get; }
+    public int health { get;}
     public void Damage(int value);
 }
