@@ -10,4 +10,6 @@ public class EnemyData : ScriptableObject
     public int damage;
     public float speed;
     public float attackRate;
+    public float spawnPercentage;
+    public GameObject prefab;
 }

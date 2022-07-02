@@ -9,6 +9,10 @@ public class EnemyHealth : MonoBehaviour, IHealth
     private int enemyHealth { get => enemyData.health; set => enemyData.health = value; }
     public int health => enemyHealth;
 
+    private void Start()
+    {
+        enemyHealth = enemyData.health; //pra quando o inimigo for desativado
+    }
     public void Damage(int value)
     {
         if (this.enemyHealth > 0)
@@ -16,6 +20,8 @@ public class EnemyHealth : MonoBehaviour, IHealth
             this.enemyHealth -= value;
             Debug.Log($"Inimigo recebeu: {value} de dano! HP restante {enemyHealth}");
         }
+        //else
+        //    EnemyDie
     }
 
 }

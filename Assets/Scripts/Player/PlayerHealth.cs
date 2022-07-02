@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour, IHealth
 {
-    [SerializeField] private PlayerAnimation playerAnimation;
+    private PlayerAnimation playerAnimation;
     private int playerHealth;
-    [SerializeField]protected int totalHealth = 100;
+    private readonly int totalHealth = 100;
     public int health => playerHealth;
 
     public delegate void OnHealthChange();
@@ -14,6 +14,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
     private void Awake()
     {
         playerHealth = totalHealth;
+        playerAnimation = GetComponent<PlayerAnimation>();
     }
     public void Damage(int value)
     {
@@ -35,11 +36,5 @@ public class PlayerHealth : MonoBehaviour, IHealth
         if (playerHealth > 0)
             playerHealth += value;
     }
-    private void Update()
-    {
-        if (Input.anyKeyDown)
-            Damage(1);
-    }
-
     public int HealthPlayer { get => playerHealth; }
 }
