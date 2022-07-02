@@ -19,5 +19,7 @@ public class BulletLogic : MonoBehaviour
     {
         if(gameObject.activeSelf)
             rbBullet.AddForce(playerTransform.transform.forward * speed, ForceMode.Impulse);
+
+        print(playerTransform.position.z);
     }
 }

@@ -703,7 +703,6 @@ GameObject:
   - component: {fileID: 3874035649969446734}
   - component: {fileID: 867274814960438382}
   - component: {fileID: 7542520616695737761}
-  - component: {fileID: 2761971245113551850}
   - component: {fileID: 7160346184950393651}
   - component: {fileID: 7583783938163724326}
   - component: {fileID: 1932892950404729765}
@@ -799,19 +798,6 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 1
---- !u!114 &2761971245113551850
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7643729992834649281}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4a78c8d978b6d8479ac7671aa748f1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyData: {fileID: 11400000, guid: 91f9015bb1e810347af6386628c36278, type: 2}
 --- !u!114 &7160346184950393651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -853,4 +839,5 @@ MonoBehaviour:
   enemyData: {fileID: 11400000, guid: 91f9015bb1e810347af6386628c36278, type: 2}
   agent: {fileID: 7542520616695737761}
   enemyAnim: {fileID: 867274814960438382}
-  counter: 0
+  currentPlayer: {fileID: 0}
+  attackRate: 0.2

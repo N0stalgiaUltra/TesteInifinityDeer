@@ -3,24 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyMovement : EnemyAttack
+public class EnemyAI : MonoBehaviour
 {
+    [SerializeField] private EnemyData enemyData;
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private Animator enemyAnim;
-    [SerializeField] private GameObject playerTest;
+    
+    private GameObject currentPlayer;
     private bool isMoving;
 
-    public delegate void EnemyAttacked();
-
     private float counter;
-    [SerializeField] private float attackRate = 0.2f;
+    private float attackRate = 1f;
     private float attackCounter = 0f;
 
     // Start is called before the first frame update
     void Start()
     {
         counter = 0f;
-        playerTest = GameManager.instance.ReturnNearestPlayer(this.transform);
+        currentPlayer = GameManager.instance.ReturnNearestPlayer(this.transform);
     }
 
     private void Update()
@@ -29,11 +29,11 @@ public class EnemyMovement : EnemyAttack
 
         if(counter >= 5f)
         {
-            playerTest = GameManager.instance.ReturnNearestPlayer(this.transform);
+            currentPlayer = GameManager.instance.ReturnNearestPlayer(this.transform);
             counter = 0f;
         }
 
-        if (Distance(playerTest.transform) <= 2f) AttackMotion();
+        if (Distance(currentPlayer.transform) <= 2f) AttackMotion();
         else Move();
 
         enemyAnim.SetBool("Move", isMoving);
@@ -42,8 +42,8 @@ public class EnemyMovement : EnemyAttack
     private void Move()
     {
         
-        agent.SetDestination(playerTest.transform.position);
-        transform.LookAt(playerTest.transform);
+        agent.SetDestination(currentPlayer.transform.position);
+        transform.LookAt(currentPlayer.transform);
         isMoving = true;
     }
 
@@ -51,9 +51,9 @@ public class EnemyMovement : EnemyAttack
     {
         isMoving = false;
         agent.SetDestination(this.transform.position);
-        transform.LookAt(playerTest.transform);
+        transform.LookAt(currentPlayer.transform);
 
-        if (Distance(playerTest.transform) <= 2.5f && Time.time > attackCounter)
+        if (Distance(currentPlayer.transform) <= 2.5f && Time.time > attackCounter)
         {
             enemyAnim.SetTrigger("Attack");
             attackCounter = Time.time + attackRate;
@@ -62,7 +62,7 @@ public class EnemyMovement : EnemyAttack
 
     public void DamagePlayer()
     {
-        base.Attack(playerTest);
+        currentPlayer.GetComponent<PlayerHealth>().Damage(enemyData.damage);
     }
     private float Distance(Transform player)
     {

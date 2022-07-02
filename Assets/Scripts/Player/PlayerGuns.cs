@@ -2,16 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerGuns : MonoBehaviour
+public class PlayerGuns : PickUpItems
 {
     [SerializeField] private GunLogic playerGun;
     [SerializeField] private Transform playerArm;
+    [SerializeField] private PlayerAnimation playerAnim;
 
-    bool canPick;
-    private GameObject aux;
     private void Start()
     {
-        InputManager.playerShooted += PlayerShoot;
+        InputManager.playerShooted += ()=> playerAnim.ShootAnim(); 
         InputManager.playerPicked += PickUpGun;
     }
     private void FixedUpdate()
@@ -31,7 +30,9 @@ public class PlayerGuns : MonoBehaviour
         //OBS: esse trecho pode parecer redundante, mas ele apenas verifica se o player tem uma arma para atirar, se não, não faz nada.
         if(playerGun != null)
         {
+            
             playerGun.Shoot();
+            
         }
 
     }
@@ -62,12 +63,5 @@ public class PlayerGuns : MonoBehaviour
         else return;
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Gun"))
-        {
-            canPick = true;
-            aux = other.gameObject;
-        }
-    }
+  
 }

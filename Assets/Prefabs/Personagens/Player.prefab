@@ -23,13 +23,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 849641503}
-  m_LocalRotation: {x: -0, y: -0, z: -0.000002682209, w: 1}
-  m_LocalPosition: {x: 1.5, y: 2, z: 0}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -0.934786, y: 0.046481133, z: 0.000027328737}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4637638718444056}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -30.11}
+  m_Father: {fileID: 4314141846487626}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1852971720
 GameObject:
   m_ObjectHideFlags: 0
@@ -60,7 +60,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4637638718444056}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &1852971722
 SphereCollider:
@@ -274,6 +274,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4502913089321712}
+  - {fileID: 849641504}
   m_Father: {fileID: 4195063913196830}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -367,7 +368,6 @@ Transform:
   m_Children:
   - {fileID: 4026714988915098}
   - {fileID: 153378073354913160}
-  - {fileID: 849641504}
   - {fileID: 1852971721}
   m_Father: {fileID: 553291143183918517}
   m_RootOrder: 1
@@ -798,6 +798,7 @@ GameObject:
   - component: {fileID: 5970702706286714227}
   - component: {fileID: 5293932635140775811}
   - component: {fileID: 188525169}
+  - component: {fileID: 7104690398103769057}
   m_Layer: 0
   m_Name: PlayerRoot
   m_TagString: Player
@@ -931,6 +932,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAnim: {fileID: 1978942353007534934}
+--- !u!114 &7104690398103769057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6632070546994610450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34eed0f103e046f4abf2e67c1f0a67e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerGun: {fileID: 0}
+  playerArm: {fileID: 849641504}
+  playerAnim: {fileID: 188525169}
 --- !u!1 &6759264005630465754
 GameObject:
   m_ObjectHideFlags: 0
@@ -940,10 +956,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 153378073354913160}
-  - component: {fileID: 4218920412656192142}
   - component: {fileID: 1378562640659770771}
+  - component: {fileID: 1635808120084053777}
   m_Layer: 0
-  m_Name: PlayerGuns
+  m_Name: PickUpItems
   m_TagString: PickUpArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -963,20 +979,6 @@ Transform:
   m_Father: {fileID: 4637638718444056}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4218920412656192142
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6759264005630465754}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34eed0f103e046f4abf2e67c1f0a67e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerGun: {fileID: 0}
-  playerArm: {fileID: 849641504}
 --- !u!135 &1378562640659770771
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -990,3 +992,15 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 3
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1635808120084053777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6759264005630465754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df4695f0c8c555c409025eefd55a098f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

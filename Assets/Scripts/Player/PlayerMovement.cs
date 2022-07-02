@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float movementVelocity;
 
     [SerializeField] private PlayerAnimation playerAnim;
+    
 
     Vector3 movement;
     [SerializeField] float rotationSpeed;

@@ -15,3 +15,4 @@ MonoBehaviour:
   health: 150
   damage: 50
   speed: 10
+  attackRate: 1.3
