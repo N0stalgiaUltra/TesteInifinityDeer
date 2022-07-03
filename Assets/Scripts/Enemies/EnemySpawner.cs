@@ -67,10 +67,19 @@ public class EnemySpawner : MonoBehaviour
         }
         else
         {
-            for (int i = 0; i < aux; i++)
-                enemyPool.Dequeue().SetActive(true);
+            StartCoroutine(DequeueEnemies(aux));
+            
         }
     
+    }
+
+    IEnumerator DequeueEnemies(int aux)
+    {
+        for (int i = 0; i < aux; i++)
+        {
+            enemyPool.Dequeue().SetActive(true);
+            yield return new WaitForSeconds(.5f);
+        }
     }
 
     public void DeactivateEnemy(GameObject enemy)

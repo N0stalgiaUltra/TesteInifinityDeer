@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,11 +11,14 @@ public class Autoaim : MonoBehaviour
     [SerializeField] private int count;
     private string enemyTag;
 
+
     void Start()
     {
         InputManager.playerAimed += AutoAim;
         count = 0;
     }
+
+
 
     private void AddToList(GameObject aux)
     {
@@ -29,14 +33,12 @@ public class Autoaim : MonoBehaviour
             return;
         
     }
-    private void RemoveFromList(GameObject aux)
+    public void RemoveFromList(GameObject aux)
     {
-        if (enemyTag.Equals("InimigoPadrao") ||
-            enemyTag.Equals("InimigoForte") ||
-            enemyTag.Equals("InimigoRapido"))
-            {
-                enemiesList.Remove(aux);
-            }
+        if(enemiesList.Contains(aux))            
+        {
+            enemiesList.Remove(aux);
+        }
     }
 
     private void AutoAim()
@@ -54,13 +56,23 @@ public class Autoaim : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        enemyTag = other.tag;
-        AddToList(other.gameObject);
+
+        if (other.gameObject.activeSelf)
+        {
+            enemyTag = other.tag;
+            AddToList(other.gameObject);
+            EnemyHealth.enemyDead += EnemyKilled; 
+        }
     }
+
+
 
     private void OnTriggerExit(Collider other)
     {
-        enemyTag = other.tag; 
+        enemyTag = other.tag;
         RemoveFromList(other.gameObject);
+        EnemyHealth.enemyDead -= EnemyKilled;
     }
+    private void EnemyKilled(GameObject obj) => RemoveFromList(obj);
+
 }
