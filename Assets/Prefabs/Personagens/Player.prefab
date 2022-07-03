@@ -23,13 +23,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 849641503}
-  m_LocalRotation: {x: 0.28678828, y: 0.4967319, z: -0.40957597, w: -0.70940644}
-  m_LocalPosition: {x: -0.934786, y: 0.046481133, z: 0.000027328737}
+  m_LocalRotation: {x: 0.38241276, y: 0.42439237, z: -0.080156475, w: -0.8168394}
+  m_LocalPosition: {x: -1.0028036, y: -0.2675035, z: -0.077584565}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4314141846487626}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 290, z: 60}
+  m_LocalEulerAnglesHint: {x: -33.828, y: 294.713, z: 33.255}
 --- !u!1 &1852971720
 GameObject:
   m_ObjectHideFlags: 0
@@ -1118,6 +1118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34eed0f103e046f4abf2e67c1f0a67e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canPick: 0
   playerGun: {fileID: 0}
   playerArm: {fileID: 849641504}
   playerAnim: {fileID: 188525169}
@@ -1178,6 +1179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df4695f0c8c555c409025eefd55a098f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canPick: 0
 --- !u!1 &8834090853145872148
 GameObject:
   m_ObjectHideFlags: 0

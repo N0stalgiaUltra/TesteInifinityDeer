@@ -17,6 +17,9 @@ public class PlayerFinder : MonoBehaviour
 
         playersList = GameObject.FindGameObjectsWithTag("Player").ToList();
     }
+
+    public void AddPlayer(GameObject player) => playersList.Add(player);
+
     public GameObject ReturnNearestPlayer(Transform currEnemy)
     {
         float currDist = 0;

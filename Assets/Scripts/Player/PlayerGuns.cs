@@ -63,5 +63,9 @@ public class PlayerGuns : PickUpItems
         else return;
     }
 
-  
+    private void OnDisable()
+    {
+        InputManager.playerShooted -= PlayerShoot;
+        InputManager.playerPicked -= PickUpGun;
+    }
 }

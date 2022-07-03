@@ -20,9 +20,9 @@ public class PlayerHealth : MonoBehaviour, IHealth
     {
         if (playerHealth > 0)
             playerHealth -= value;
-        //else
-        //    Die();
-        
+        else
+            Die();
+
         playerAnimation.Hurt();
         healthChanged?.Invoke();
         print($"Player perdeu {value} de HP");
@@ -30,6 +30,8 @@ public class PlayerHealth : MonoBehaviour, IHealth
     public void Die()
     {
         playerAnimation.Die();
+        GameManager.instance.GameOver(false);
+        playerHealth = totalHealth;
     }
     public void Heal(int value)
     {

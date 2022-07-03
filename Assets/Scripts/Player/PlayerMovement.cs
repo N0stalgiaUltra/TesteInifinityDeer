@@ -39,4 +39,9 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.velocity = movement * movementVelocity;
     }
+
+    private void OnDisable()
+    {
+        InputManager.OnMove -= Move;
+    }
 }

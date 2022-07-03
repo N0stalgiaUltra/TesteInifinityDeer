@@ -75,4 +75,9 @@ public class Autoaim : MonoBehaviour
     }
     private void EnemyKilled(GameObject obj) => RemoveFromList(obj);
 
+    private void OnDisable()
+    {
+        InputManager.playerAimed -= AutoAim;
+
+    }
 }

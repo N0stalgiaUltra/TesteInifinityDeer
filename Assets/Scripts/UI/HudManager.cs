@@ -14,9 +14,7 @@ public class HudManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI hordeText;
     [SerializeField] private TextMeshProUGUI enemiesCountText;
     [SerializeField] private TextMeshProUGUI playerScore;
-    void Start()
-    {
-    }
+
 
     // Update is called once per frame
     void Update()

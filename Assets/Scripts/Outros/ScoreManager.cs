@@ -13,15 +13,6 @@ public class ScoreManager : MonoBehaviour
         highScore = PlayerPrefs.GetInt("HighScore");
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.K))
-            SetScore(50);
-        else if (Input.GetKeyDown(KeyCode.L))
-            SaveScore();
-
-    }
-
     public void SetScore(int scoreEnemy) 
     {
         this.score += scoreEnemy;
@@ -38,4 +29,5 @@ public class ScoreManager : MonoBehaviour
     }
 
     public int Score { get => score; }
+    public int Highscore { get => highScore; }
 }
