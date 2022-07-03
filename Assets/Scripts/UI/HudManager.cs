@@ -6,8 +6,12 @@ using TMPro;
 
 public class HudManager : MonoBehaviour
 {
+    [SerializeField] private HordeManager hordeManager;
+    
+    [Header("TextMesh References")]
     [SerializeField] private TextMeshProUGUI playerName;
     [SerializeField] private TextMeshProUGUI hordeText;
+    [SerializeField] private TextMeshProUGUI enemiesCountText;
     [SerializeField] private TextMeshProUGUI playerScore;
     void Start()
     {
