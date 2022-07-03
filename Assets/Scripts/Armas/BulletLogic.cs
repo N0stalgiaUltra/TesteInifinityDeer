@@ -14,12 +14,11 @@ public class BulletLogic : MonoBehaviour
     {
         if (gameObject.activeSelf)
             damage = gameObject.GetComponentInParent<GunLogic>().Damage;
+        print(damage);
     }
     void FixedUpdate()
     {
         if(gameObject.activeSelf)
             rbBullet.AddForce(playerTransform.transform.forward * speed, ForceMode.Impulse);
-
-        print(playerTransform.position.z);
     }
 }

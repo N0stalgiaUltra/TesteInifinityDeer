@@ -6,10 +6,11 @@ public class EnemyCollider : EnemyHealth, ICollider
 {
 
     private string colliderTag;
-    private int damage;
+    [SerializeField] private int damage;
 
     public void GetHit()
     {
+        print("Damage" + damage);
         Damage(damage);
     }
 

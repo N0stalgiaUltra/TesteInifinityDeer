@@ -11,7 +11,7 @@ public class BulletCollider : MonoBehaviour, ICollider
         DeactivateBullet();
     }
 
-    private void OnBecameInvisible() => DeactivateBullet();
+    //private void OnBecameInvisible() => DeactivateBullet();
 
 
     private void DeactivateBullet()

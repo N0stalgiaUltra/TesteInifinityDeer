@@ -10,7 +10,7 @@ public class PlayerGuns : PickUpItems
 
     private void Start()
     {
-        InputManager.playerShooted += ()=> playerAnim.ShootAnim(); 
+        InputManager.playerShooted += PlayerShoot; 
         InputManager.playerPicked += PickUpGun;
     }
     private void FixedUpdate()
