@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private HordeManager hordeManager;
+    [SerializeField] private ScoreManager scoreManager;
     [SerializeField] private List<EnemyData> enemiesType = new List<EnemyData>(3);
     [SerializeField] private List<float> spawnChance = new List<float>(3);
     [SerializeField] private List<Transform> spawnPosition = new List<Transform>(3);
@@ -81,8 +82,9 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    public void DeactivateEnemy(GameObject enemy)
+    public void DeactivateEnemy(GameObject enemy, EnemyData data)
     {
+        scoreManager.SetScore(data.score);
         hordeManager.KillCount++;
         enemy.SetActive(false);
         enemyPool.Enqueue(enemy);

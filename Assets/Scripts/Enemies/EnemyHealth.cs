@@ -39,7 +39,7 @@ public class EnemyHealth : MonoBehaviour, IHealth
         if (enemyDead != null)
             enemyDead(this.gameObject);
 
-        enemySpawner.DeactivateEnemy(enemyParent);
+        enemySpawner.DeactivateEnemy(enemyParent, enemyData);
         this.gameObject.SetActive(false);
         enemyHealth = enemyData.health;
     }

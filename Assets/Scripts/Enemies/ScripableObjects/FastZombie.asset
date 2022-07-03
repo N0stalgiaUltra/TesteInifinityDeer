@@ -17,4 +17,5 @@ MonoBehaviour:
   speed: 5
   attackRate: 0.7
   spawnPercentage: 0.3
+  score: 150
   prefab: {fileID: 1063500868937916, guid: b294f3cc2179b1346b64d2d18d989e11, type: 3}
