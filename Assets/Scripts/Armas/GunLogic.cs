@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GunLogic : MonoBehaviour
@@ -9,6 +10,7 @@ public class GunLogic : MonoBehaviour
     [SerializeField] private ParticleSystem muzzleFire;
     [SerializeField] private Collider gunCollider;
 
+    public static bool reloading;
     private int ammo;
     private float nextFire;
     private bool canShoot;
@@ -16,7 +18,8 @@ public class GunLogic : MonoBehaviour
     void Start()
     {
         nextFire = 0f;
-        ammo = gunData.ammo;   
+        ammo = gunData.ammo;
+        reloading = false;
     }
     private void Update()
     {
@@ -49,10 +52,10 @@ public class GunLogic : MonoBehaviour
     /// <returns>Espera o tempo de reload e retorna com o numero de munições.</returns>
     IEnumerator Reload()
     {
-        print("Recarregando");
+        reloading = true;
         yield return new WaitForSeconds(gunData.reloadTime);
         ammo = gunData.ammo;
-        print("parou de recarregar");
+        reloading = false;
     }
 
     public void DisableCollider()
