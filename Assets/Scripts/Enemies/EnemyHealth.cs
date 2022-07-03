@@ -24,18 +24,11 @@ public class EnemyHealth : MonoBehaviour, IHealth
         {
             OnDeath();
         }
-
-        if (Input.anyKeyDown)
-            OnDeath();
     }
     public void Damage(int value)
     {
         if (this.enemyHealth > 0)
-        {
             this.enemyHealth -= value;
-
-        }
-
     }
 
     private void OnDeath()

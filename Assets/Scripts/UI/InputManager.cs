@@ -19,6 +19,8 @@ public class InputManager : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
     [SerializeField]
     private int dragOffsetDistance = 100;
 
+    [Header("Hold/Release Button Properties")]
+    bool isPressed;
 
     #region Events
     private Vector3 moveInput;
@@ -90,6 +92,7 @@ public class InputManager : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
     public void OnPointerDown(PointerEventData eventData)
     {
         OnDrag(eventData);
+        isPressed = true;
     }
 
     /// <summary>

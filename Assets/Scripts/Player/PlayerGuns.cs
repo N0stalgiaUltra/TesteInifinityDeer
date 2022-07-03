@@ -30,9 +30,7 @@ public class PlayerGuns : PickUpItems
         //OBS: esse trecho pode parecer redundante, mas ele apenas verifica se o player tem uma arma para atirar, se não, não faz nada.
         if(playerGun != null)
         {
-            
             playerGun.Shoot();
-            
         }
 
     }

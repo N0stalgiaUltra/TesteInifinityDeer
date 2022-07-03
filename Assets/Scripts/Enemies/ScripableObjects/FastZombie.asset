@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 70
   damage: 10
-  speed: 35
+  speed: 5
   attackRate: 0.7
   spawnPercentage: 0.3
   prefab: {fileID: 1063500868937916, guid: 0536157cba6a2a543acb04c89e02cd1e, type: 3}

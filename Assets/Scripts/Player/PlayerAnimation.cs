@@ -6,7 +6,7 @@ public class PlayerAnimation : MonoBehaviour
 {
     [SerializeField] private Animator playerAnim;
 
-  
+    
     public void Move(bool value)
     {
         if (value)
@@ -19,8 +19,9 @@ public class PlayerAnimation : MonoBehaviour
         playerAnim.SetTrigger("Hurt");
     }
     public void ShootAnim()
-    {      
+    {
         playerAnim.SetTrigger("Shoot");
+        //playerAnim.SetBool("Shoot", true);
     }
     public void Die()
     {

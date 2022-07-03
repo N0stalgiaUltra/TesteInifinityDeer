@@ -41,7 +41,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Move()
     {
-        
+        agent.speed = enemyData.speed;
         agent.SetDestination(currentPlayer.transform.position);
         transform.LookAt(currentPlayer.transform);
         isMoving = true;

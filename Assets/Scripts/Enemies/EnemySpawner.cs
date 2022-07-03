@@ -7,26 +7,29 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private HordeManager hordeManager;
     [SerializeField] private List<EnemyData> enemiesType = new List<EnemyData>(3);
     [SerializeField] private List<float> spawnChance = new List<float>(3);
+    [SerializeField] private List<Transform> spawnPosition = new List<Transform>(3);
 
     private Queue<GameObject> enemyPool = new Queue<GameObject>();
-    void Awake()
+    void Start()
     {
-        int aux = hordeManager.TotalEnemies;
-
+        int aux = hordeManager.totalEnemiesCount;
         for (int i = 0; i < enemiesType.Count; i++)
-        {
             spawnChance.Add(enemiesType[i].spawnPercentage);
-        }
-
-        for (int i = 0; i < aux; i++)
-        {
-            GameObject aux2 = Instantiate(enemiesType[GetRandomSpawn()].prefab, this.transform);
-            aux2.SetActive(false);
-            enemyPool.Enqueue(aux2);
-        }
+        
+        FillQueue(aux);
         
     }
 
+    private void FillQueue(int aux)
+    {
+        print("Adicionando para a fila");
+        for (int i = 0; i < aux; i++)
+        {
+            GameObject aux2 = Instantiate(enemiesType[GetRandomSpawn()].prefab, spawnPosition[Random.Range(0,3)]);
+            aux2.SetActive(false);
+            enemyPool.Enqueue(aux2);
+        }
+    }
     // Update is called once per frame
     void Update()
     {
@@ -57,17 +60,23 @@ public class EnemySpawner : MonoBehaviour
     }
         
     public void ActivateEnemies(int aux)
-    {        
-        for (int i = 0; i < aux; i++)
+    {
+        if(enemyPool.Count == 0)
         {
-            enemyPool.Dequeue().SetActive(true);
+            FillQueue(aux);
         }
+        else
+        {
+            for (int i = 0; i < aux; i++)
+                enemyPool.Dequeue().SetActive(true);
+        }
+    
     }
 
     public void DeactivateEnemy(GameObject enemy)
     {
         hordeManager.KillCount++;
-        enemy.gameObject.SetActive(false);
+        enemy.SetActive(false);
         enemyPool.Enqueue(enemy);
     }
 

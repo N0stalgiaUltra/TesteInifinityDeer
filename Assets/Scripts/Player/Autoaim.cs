@@ -8,10 +8,27 @@ public class Autoaim : MonoBehaviour
     [SerializeField] private Transform player;
 
     [SerializeField] private int count;
+    private string enemyTag;
+    private GameObject aux;
+
     void Start()
     {
         InputManager.playerAimed += AutoAim;
         count = 0;
+    }
+
+    private void AddToList()
+    {
+        if (enemyTag.Equals("InimigoPadrao") ||
+            enemyTag.Equals("InimigoForte") || 
+            enemyTag.Equals("InimigoRapido"))
+        {
+            enemiesList.Add(aux);
+            aux = null;
+        }
+        else
+            return;
+        
     }
 
     private void AutoAim()
@@ -29,10 +46,9 @@ public class Autoaim : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Inimigo"))
-        {
-            enemiesList.Add(other.gameObject);
-        }
+        enemyTag = other.tag;
+        aux = other.gameObject;
+        AddToList();
     }
 
     private void OnTriggerExit(Collider other)

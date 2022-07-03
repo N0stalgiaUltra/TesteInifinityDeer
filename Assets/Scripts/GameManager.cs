@@ -15,9 +15,12 @@ public class GameManager : MonoBehaviour
         else
             instance = this;
     }
-    private void Start()
+    private void Update()
     {
-        StartGame();
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            StartGame();
+        }
     }
     public void StartGame()
     {

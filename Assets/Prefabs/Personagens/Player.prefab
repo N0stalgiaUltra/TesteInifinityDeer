@@ -1074,8 +1074,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb152527a5ab3fa43a07a2a540c647b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerAnimation: {fileID: 188525169}
-  totalHealth: 100
   enemyData:
   - nameEnemy: InimigoPadrao
     data: {fileID: 11400000, guid: 91f9015bb1e810347af6386628c36278, type: 2}
@@ -1095,8 +1093,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 492489b652a2ca74491d1d3d4ca25a74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerAnimation: {fileID: 188525169}
-  totalHealth: 100
 --- !u!114 &188525169
 MonoBehaviour:
   m_ObjectHideFlags: 0
