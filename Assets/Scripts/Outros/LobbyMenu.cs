@@ -14,8 +14,7 @@ public class LobbyMenu : MonoBehaviourPunCallbacks
 #if UNITY_EDITOR
         username.text = $"Username: UNITY EDITOR";
 #endif
-        username.text = $"Username: {PlayerPrefs.GetString("UserName")}";
-
+        username.text = $"Welcome, {PlayerPrefs.GetString("UserName")}!";
     }
 
 

@@ -77,7 +77,7 @@ public class PlayfabAuthentication : MonoBehaviourPunCallbacks
         nameFB = result.ResultDictionary["name"].ToString();
         PlayerPrefs.SetString("UserName", nameFB);
         PlayerPrefs.Save();
-        SceneManager.LoadScene("Lobby");
+        SceneManager.LoadScene("LoadLobby");
     }
 
 

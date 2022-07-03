@@ -25,8 +25,8 @@ public class HudManager : MonoBehaviour
     public void SetUI()
     {
         
-        playerName.text = "Player"; //implementar com o playfab
-        playerScore.text = $"Score: {scoreManager.Score}"; //implementar com o player score
+        playerName.text = PlayerPrefs.GetString("UserName"); 
+        playerScore.text = $"Score: {scoreManager.Score}"; 
         hordeText.text = $"Horde: {hordeManager.actualRound}/{hordeManager.RoundCount}";
         enemiesCountText.text = $"Enemies: {hordeManager.KillCount}/{hordeManager.EnemiesPerRound(hordeManager.actualRound-1)}";
     }
