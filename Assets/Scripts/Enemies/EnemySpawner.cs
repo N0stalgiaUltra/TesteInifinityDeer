@@ -22,7 +22,6 @@ public class EnemySpawner : MonoBehaviour
 
     private void FillQueue(int aux)
     {
-        print("Adicionando para a fila");
         for (int i = 0; i < aux; i++)
         {
             GameObject aux2 = Instantiate(enemiesType[GetRandomSpawn()].prefab, spawnPosition[Random.Range(0,3)]);

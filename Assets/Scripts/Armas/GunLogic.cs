@@ -7,7 +7,8 @@ public class GunLogic : MonoBehaviour
     [SerializeField] private Gun gunData;
     [SerializeField] private Transform bulletSpawn;
     [SerializeField] private ParticleSystem muzzleFire;
-    
+    [SerializeField] private Collider gunCollider;
+
     private int ammo;
     private float nextFire;
     private bool canShoot;
@@ -52,5 +53,10 @@ public class GunLogic : MonoBehaviour
         yield return new WaitForSeconds(gunData.reloadTime);
         ammo = gunData.ammo;
         print("parou de recarregar");
+    }
+
+    public void DisableCollider()
+    {
+        gunCollider.enabled = false;
     }
 }

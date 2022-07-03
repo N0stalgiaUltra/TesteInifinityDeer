@@ -312,6 +312,10 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 96
       objectReference: {fileID: 0}
+    - target: {fileID: 81251278, guid: 088ac68bbfcc04c02b05b114e6b30b2d, type: 3}
+      propertyPath: gunCollider
+      value: 
+      objectReference: {fileID: 799600475}
     - target: {fileID: 871544928, guid: 088ac68bbfcc04c02b05b114e6b30b2d, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -792,6 +796,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 360805578}
   m_CullTransparentMesh: 1
+--- !u!65 &388158365 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 821472068, guid: eb466420915594aa68314ac6ad7298af,
+    type: 3}
+  m_PrefabInstance: {fileID: 821472065}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &541488512
 GameObject:
   m_ObjectHideFlags: 0
@@ -1212,6 +1222,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playersList: []
+--- !u!65 &799600475 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 81251276, guid: 088ac68bbfcc04c02b05b114e6b30b2d,
+    type: 3}
+  m_PrefabInstance: {fileID: 81251274}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &821472065
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1227,6 +1243,10 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 96
       objectReference: {fileID: 0}
+    - target: {fileID: 821472070, guid: eb466420915594aa68314ac6ad7298af, type: 3}
+      propertyPath: gunCollider
+      value: 
+      objectReference: {fileID: 388158365}
     - target: {fileID: 1045676280529186, guid: eb466420915594aa68314ac6ad7298af, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -1609,6 +1629,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &902806329 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 3186325747052363544, guid: b5a75d52478f3443e853501f64dbae36,
+    type: 3}
+  m_PrefabInstance: {fileID: 1780966213}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &917942649
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3079,6 +3105,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1780966215, guid: b5a75d52478f3443e853501f64dbae36, type: 3}
+      propertyPath: gunCollider
+      value: 
+      objectReference: {fileID: 902806329}
     - target: {fileID: 1281603256488900, guid: b5a75d52478f3443e853501f64dbae36, type: 3}
       propertyPath: m_Layer
       value: 7

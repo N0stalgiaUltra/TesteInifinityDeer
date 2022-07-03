@@ -8,6 +8,7 @@ public class PlayerGuns : PickUpItems
     [SerializeField] private Transform playerArm;
     [SerializeField] private PlayerAnimation playerAnim;
 
+    private bool haveGun;
     private void Start()
     {
         InputManager.playerShooted += PlayerShoot; 
@@ -42,13 +43,13 @@ public class PlayerGuns : PickUpItems
     {
         if (canPick)
         {
-            if (playerGun != null)
+            if (playerGun != null)//troca a arma
             {
                 playerGun.transform.SetParent(null);
                 Destroy(playerGun.gameObject);
                 //playerGun = null;
             }
-
+            
             playerGun = aux.GetComponent<GunLogic>();
 
             playerGun.transform.position = playerArm.position;
@@ -57,6 +58,7 @@ public class PlayerGuns : PickUpItems
 
             aux = null;
             canPick = false;
+            playerGun.DisableCollider();
         }
         else return;
     }

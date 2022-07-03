@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PickUpItems : MonoBehaviour
 {
-    protected bool canPick;
+    [SerializeField] protected bool canPick;
     protected GameObject aux;
 
     private void OnTriggerEnter(Collider other)
@@ -15,5 +15,7 @@ public class PickUpItems : MonoBehaviour
             canPick = true;
             aux = other.gameObject;
         }
+        else
+            canPick = false;
     }
 }
