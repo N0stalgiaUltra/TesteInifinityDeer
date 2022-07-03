@@ -11,6 +11,7 @@ TagManager:
   - InimigoForte
   - InimigoRapido
   - Autoaim
+  - Bullet
   layers:
   - Default
   - TransparentFX

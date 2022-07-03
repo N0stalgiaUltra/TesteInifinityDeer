@@ -785,7 +785,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 7643729992834649281}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.83
+  m_Radius: 0.1
   m_Speed: 3
   m_Acceleration: 2
   avoidancePriority: 50
@@ -812,6 +812,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: 91f9015bb1e810347af6386628c36278, type: 2}
   enemyHealth: 0
+  damage: 0
 --- !u!114 &7583783938163724326
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,7 +10,6 @@ public class EnemyCollider : EnemyHealth, ICollider
 
     public void GetHit()
     {
-        print("Damage" + damage);
         Damage(damage);
     }
 

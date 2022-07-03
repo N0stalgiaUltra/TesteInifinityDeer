@@ -9,7 +9,6 @@ public class Autoaim : MonoBehaviour
 
     [SerializeField] private int count;
     private string enemyTag;
-    private GameObject aux;
 
     void Start()
     {
@@ -17,7 +16,7 @@ public class Autoaim : MonoBehaviour
         count = 0;
     }
 
-    private void AddToList()
+    private void AddToList(GameObject aux)
     {
         if (enemyTag.Equals("InimigoPadrao") ||
             enemyTag.Equals("InimigoForte") || 
@@ -29,6 +28,15 @@ public class Autoaim : MonoBehaviour
         else
             return;
         
+    }
+    private void RemoveFromList(GameObject aux)
+    {
+        if (enemyTag.Equals("InimigoPadrao") ||
+            enemyTag.Equals("InimigoForte") ||
+            enemyTag.Equals("InimigoRapido"))
+            {
+                enemiesList.Remove(aux);
+            }
     }
 
     private void AutoAim()
@@ -47,15 +55,12 @@ public class Autoaim : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         enemyTag = other.tag;
-        aux = other.gameObject;
-        AddToList();
+        AddToList(other.gameObject);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Inimigo"))
-        {
-            enemiesList.Remove(other.gameObject);
-        }
+        enemyTag = other.tag; 
+        RemoveFromList(other.gameObject);
     }
 }
