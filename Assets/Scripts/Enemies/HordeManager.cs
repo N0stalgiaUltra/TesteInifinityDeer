@@ -12,7 +12,7 @@ public class HordeManager : MonoBehaviour
    
     public int actualRound;
     [SerializeField] private int killCount;
-    [SerializeField] public int totalEnemiesCount;
+    public int totalEnemiesCount;
 
 
     private void Awake()
@@ -54,6 +54,7 @@ public class HordeManager : MonoBehaviour
         GameManager.instance.GameOver(true);
     }
     public int KillCount { get => killCount; set => killCount = value; }
+    public int RoundCount { get => hordeNumber; }
 
 }
 

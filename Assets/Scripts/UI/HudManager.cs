@@ -15,17 +15,20 @@ public class HudManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI playerScore;
     void Start()
     {
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        SetUI();
     }
 
-    public void StartUi()
+    public void SetUI()
     {
-        playerScore.text = $"{0}";
+        
+        playerName.text = "Player"; //implementar com o playfab
+        playerScore.text = $"Score: {0}"; //implementar com o player score
+        hordeText.text = $"Horde: {hordeManager.actualRound}/{hordeManager.RoundCount}";
+        enemiesCountText.text = $"Enemies: {hordeManager.KillCount}/{hordeManager.EnemiesPerRound(hordeManager.actualRound-1)}";
     }
 }
