@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,8 +10,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float movementVelocity;
 
     [SerializeField] private PlayerAnimation playerAnim;
-    
 
+    [SerializeField] private PhotonView view;
     Vector3 movement;
     [SerializeField] float rotationSpeed;
     void Start()
@@ -20,24 +21,29 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move(Vector3 movementInput)
     {
-        movement = movementInput;
-        if(Mathf.Abs(movementInput.x) > Mathf.Epsilon || Mathf.Abs(movementInput.z) > Mathf.Epsilon)
+        if (view.IsMine)
         {
-            playerAnim.Move(true);
-        }
-        else
-            playerAnim.Move(false);
+            movement = movementInput;
+            if (Mathf.Abs(movementInput.x) > Mathf.Epsilon || Mathf.Abs(movementInput.z) > Mathf.Epsilon)
+            {
+                playerAnim.Move(true);
+            }
+            else
+                playerAnim.Move(false);
 
-        if (movement != Vector3.zero)
-        {
-            Quaternion toRotation = Quaternion.LookRotation(movement, Vector3.up);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+            if (movement != Vector3.zero)
+            {
+                Quaternion toRotation = Quaternion.LookRotation(movement, Vector3.up);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+            }
         }
+        
     }
 
     void FixedUpdate()
     {
-        rb.velocity = movement * movementVelocity;
+        if(view.IsMine)
+            rb.velocity = movement * movementVelocity;
     }
 
     private void OnDisable()

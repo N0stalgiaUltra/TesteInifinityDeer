@@ -22,7 +22,6 @@ public class BulletCollider : MonoBehaviour, ICollider
 
     private void OnTriggerEnter(Collider other)
     {
-        print($"name{other.gameObject.name}, tag: {other.gameObject.tag}");
         GetHit();
     }
 

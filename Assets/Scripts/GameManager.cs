@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class GameManager : MonoBehaviour
 {
@@ -30,16 +31,16 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         Time.timeScale = 1f;
-        //SetPlayer();
+        SpawnPlayer();
         hordeManager.StartRound();
     }
 
-    public void SetPlayer()
+    public void SpawnPlayer()
     {
-        GameObject p1 = Instantiate(player);
+        GameObject p1 = PhotonNetwork.Instantiate(player.name, this.transform.position, Quaternion.identity);
         p1.SetActive(true);
         PlayerFinder.instance.AddPlayer(p1);
-        playerCam.SetCamera(player.transform.GetChild(0));
+        playerCam.SetCamera(player.transform);
     }
 
     public void GameOver(bool victory)
