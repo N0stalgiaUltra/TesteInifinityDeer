@@ -13,7 +13,7 @@ public class PlayerUI : MonoBehaviour
 
     void Start()
     {
-        healthBar.fillAmount = playerHealth.HealthPlayer / 100;
+        healthBar.fillAmount = playerHealth.HealthPlayer / playerHealth.TotalHealt;
         playerHealth.healthChanged += HealthChanged;
         reloadingText.enabled = false;
 

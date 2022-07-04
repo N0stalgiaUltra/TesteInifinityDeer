@@ -6,7 +6,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
 {
     private PlayerAnimation playerAnimation;
     private int playerHealth;
-    private readonly int totalHealth = 100;
+    private readonly int totalHealth = 200;
     public int health => playerHealth;
 
     public delegate void OnHealthChange();
@@ -44,4 +44,5 @@ public class PlayerHealth : MonoBehaviour, IHealth
             playerHealth += value;
     }
     public int HealthPlayer { get => playerHealth; }
+    public int TotalHealt { get => totalHealth; }
 }

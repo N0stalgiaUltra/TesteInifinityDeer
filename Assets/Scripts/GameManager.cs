@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Cinemachine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject player;
     [SerializeField] private PlayerCam playerCam;
+
+    [SerializeField] private Button startGameBtn;
     //[SerializeField] private CinemachineVirtualCamera cam;
     private void Awake()
     {
@@ -23,16 +26,16 @@ public class GameManager : MonoBehaviour
         else
             instance = this;
     }
-    private void Update()
+    private void Start()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            StartGame();
-        }
+        Time.timeScale = 0;
+        startGameBtn.onClick.AddListener(StartGame);
     }
+
     public void StartGame()
     {
         Time.timeScale = 1f;
+        startGameBtn.gameObject.SetActive(false);
         SpawnPlayer();
         hordeManager.StartRound();
     }
