@@ -16,6 +16,11 @@ public class PlayerHealth : MonoBehaviour, IHealth
         playerHealth = totalHealth;
         playerAnimation = GetComponent<PlayerAnimation>();
     }
+    private void Update()
+    {
+        if (playerHealth <= 0)
+            Die();
+    }
     public void Damage(int value)
     {
         if (playerHealth > 0)

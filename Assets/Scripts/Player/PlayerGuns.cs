@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,7 @@ public class PlayerGuns : PickUpItems
     [SerializeField] private GunLogic playerGun;
     [SerializeField] private Transform playerArm;
     [SerializeField] private PlayerAnimation playerAnim;
+    public PhotonView view;
 
     private bool haveGun;
     private void Start()
@@ -29,7 +31,8 @@ public class PlayerGuns : PickUpItems
     private void PlayerShoot()
     {
         //OBS: esse trecho pode parecer redundante, mas ele apenas verifica se o player tem uma arma para atirar, se não, não faz nada.
-        if(playerGun != null)
+        
+        if(view.IsMine && playerGun != null)
         {
             playerGun.Shoot();
         }
@@ -41,7 +44,7 @@ public class PlayerGuns : PickUpItems
     /// </summary>
     private void PickUpGun()
     {
-        if (canPick)
+        if (view.IsMine && canPick)
         {
             if (playerGun != null)//troca a arma
             {

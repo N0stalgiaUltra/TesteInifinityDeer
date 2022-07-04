@@ -1320,6 +1320,7 @@ MonoBehaviour:
   playerGun: {fileID: 0}
   playerArm: {fileID: 3322948783190868827}
   playerAnim: {fileID: 3322948784139315466}
+  view: {fileID: 6389535549010346487}
 --- !u!114 &6389535549010346487
 MonoBehaviour:
   m_ObjectHideFlags: 0

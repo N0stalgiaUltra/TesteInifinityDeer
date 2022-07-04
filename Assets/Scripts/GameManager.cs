@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Cinemachine;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject player;
     [SerializeField] private PlayerCam playerCam;
+    //[SerializeField] private CinemachineVirtualCamera cam;
     private void Awake()
     {
         if (instance != null)
@@ -40,7 +42,7 @@ public class GameManager : MonoBehaviour
         GameObject p1 = PhotonNetwork.Instantiate(player.name, this.transform.position, Quaternion.identity);
         p1.SetActive(true);
         PlayerFinder.instance.AddPlayer(p1);
-        playerCam.SetCamera(player.transform);
+        playerCam.SetCamera(p1.transform);
     }
 
     public void GameOver(bool victory)
