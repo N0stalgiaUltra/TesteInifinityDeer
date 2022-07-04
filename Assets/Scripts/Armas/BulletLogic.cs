@@ -14,7 +14,6 @@ public class BulletLogic : MonoBehaviour
     {
         if (gameObject.activeSelf)
             damage = gameObject.GetComponentInParent<GunLogic>().Damage;
-        print(damage);
     }
     void FixedUpdate()
     {

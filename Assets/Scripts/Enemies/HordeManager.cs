@@ -34,7 +34,7 @@ public class HordeManager : MonoBehaviour
     public void EndRound()
     {
         actualRound++;
-        if (actualRound >= hordeNumber)
+        if (actualRound > hordeNumber)
             EndLevel();
         else
             StartCoroutine(WaitToRestart());
