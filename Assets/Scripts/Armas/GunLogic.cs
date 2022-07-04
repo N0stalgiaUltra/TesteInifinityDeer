@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-
+/// <summary>
+/// Script para controlar a lógica das armas
+/// </summary>
 public class GunLogic : MonoBehaviour
 {
     [SerializeField] private Gun gunData;
@@ -58,6 +60,9 @@ public class GunLogic : MonoBehaviour
         reloading = false;
     }
 
+    /// <summary>
+    /// Usado para desabilitar o colisor.
+    /// </summary>
     public void DisableCollider()
     {
         gunCollider.enabled = false;

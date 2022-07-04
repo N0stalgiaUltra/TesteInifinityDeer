@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Script para controlar a lógica das balas, atribuindo movimento e recuperando damage.
+/// </summary>
 public class BulletLogic : MonoBehaviour
 {
     [SerializeField] private Rigidbody rbBullet;

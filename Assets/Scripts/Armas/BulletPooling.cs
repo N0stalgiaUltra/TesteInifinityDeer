@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Script para fazer o pooling das balas
+/// </summary>
 public class BulletPooling : MonoBehaviour
 {
     

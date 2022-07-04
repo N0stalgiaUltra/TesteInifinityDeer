@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Script para gerar o scriptable object de uma arma
+/// </summary>
 [CreateAssetMenu(menuName = "Assets/Create Gun")]
 public class Gun : ScriptableObject
 {
