@@ -5,7 +5,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
-
+/// <summary>
+/// Usado para controlar o input de UI na cena
+/// </summary>
 public class InputManager : MonoBehaviour, IPointerUpHandler, IPointerDownHandler , IDragHandler
 {
 
@@ -86,7 +88,7 @@ public class InputManager : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
     /// <summary>
     /// Usado somente para não travar o analog stick em uma posição
     /// </summary>
-    /// <param name="eventData"></param>
+    /// <param name="eventData">dados do objeto a ser controlado, no caso, stick menor</param>
     public void OnPointerDown(PointerEventData eventData)
     {
         OnDrag(eventData);
@@ -95,7 +97,7 @@ public class InputManager : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
     /// <summary>
     /// Método responsável por calcular e retornar um Vector3 para movimentar o player
     /// </summary>
-    /// <param name="offset"></param>
+    /// <param name="offset">deslocamento do stick</param>
     /// <returns></returns>
     public Vector3 MovementInput(Vector2 offset)
     {

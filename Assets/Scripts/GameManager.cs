@@ -4,7 +4,9 @@ using UnityEngine;
 using Photon.Pun;
 using Cinemachine;
 using UnityEngine.UI;
-
+/// <summary>
+/// Script usado para gerenciar o jogo
+/// </summary>
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
@@ -31,7 +33,9 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
         startGameBtn.onClick.AddListener(StartGame);
     }
-
+    /// <summary>
+    /// Usado para iniciar o game
+    /// </summary>
     public void StartGame()
     {
         Time.timeScale = 1f;
@@ -39,7 +43,9 @@ public class GameManager : MonoBehaviour
         SpawnPlayer();
         hordeManager.StartRound();
     }
-
+    /// <summary>
+    /// Adiciona um player na cena
+    /// </summary>
     public void SpawnPlayer()
     {
         GameObject p1 = PhotonNetwork.Instantiate(player.name, this.transform.position, Quaternion.identity);
@@ -47,7 +53,10 @@ public class GameManager : MonoBehaviour
         PlayerFinder.instance.AddPlayer(p1);
         playerCam.SetCamera(p1.transform);
     }
-
+    /// <summary>
+    /// Script usado para indicar o fim do jogo
+    /// </summary>
+    /// <param name="victory">se o player venceu ou não</param>
     public void GameOver(bool victory)
     {
         scoreManager.SaveScore();

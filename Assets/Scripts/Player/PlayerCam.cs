@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
+/// <summary>
+/// Usado para fazer a camera seguir o player
+/// </summary>
 public class PlayerCam : MonoBehaviour
 {
     [SerializeField] private CinemachineVirtualCamera cam;

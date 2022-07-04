@@ -2,7 +2,9 @@ using System.Collections;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Script utilitario para encontrar os players na cena
+/// </summary>
 public class PlayerFinder : MonoBehaviour
 {
     [SerializeField] private List<GameObject> playersList = new List<GameObject>();
@@ -17,9 +19,17 @@ public class PlayerFinder : MonoBehaviour
 
         playersList = GameObject.FindGameObjectsWithTag("Player").ToList();
     }
-
+    /// <summary>
+    /// Caso um player seja adicionado na cena, ele será adicionado na lista
+    /// </summary>
+    /// <param name="player">player adicionado na cena</param>
     public void AddPlayer(GameObject player) => playersList.Add(player);
-
+    
+    /// <summary>
+    /// Metodo usado pra saber qual o player mais proximo do inimigo
+    /// </summary>
+    /// <param name="currEnemy">inimigo </param>
+    /// <returns>player mais proximo do inimigo</returns>
     public GameObject ReturnNearestPlayer(Transform currEnemy)
     {
         float currDist = 0;

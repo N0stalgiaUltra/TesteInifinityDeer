@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+/// <summary>
+/// Script usado apra controlar a UI do player
+/// </summary>
 public class PlayerUI : MonoBehaviour
 {
     [SerializeField] private Image healthBar;
@@ -23,9 +26,11 @@ public class PlayerUI : MonoBehaviour
     {
         reloadingText.enabled = GunLogic.reloading;
     }
-
+    /// <summary>
+    /// Usado para atualizar a barra vida do player
+    /// </summary>
     void HealthChanged()
     {
-        healthBar.fillAmount = (float)playerHealth.HealthPlayer / 100;
+        healthBar.fillAmount = (float)playerHealth.HealthPlayer / playerHealth.TotalHealt;
     }
 }

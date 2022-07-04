@@ -8,7 +8,9 @@ using LoginResult = PlayFab.ClientModels.LoginResult;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
 
-
+/// <summary>
+/// Script usado para autenticar o login do facebook com o Playfab
+/// </summary>
 public class PlayfabAuthentication : MonoBehaviourPunCallbacks
 {
     // Start is called before the first frame update

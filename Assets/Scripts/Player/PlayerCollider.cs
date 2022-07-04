@@ -2,7 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Script usado para controlar o colisor do player
+/// </summary>
 public class PlayerCollider : PlayerHealth, ICollider
 {
     [Serializable]
@@ -15,6 +17,9 @@ public class PlayerCollider : PlayerHealth, ICollider
 
     private string enemyTag;
 
+    /// <summary>
+    /// Chamado quando o player encostar em um inimigo, implementado da interface ICollider
+    /// </summary>
     public void GetHit()
     {
         foreach(Enemy e in enemyData)

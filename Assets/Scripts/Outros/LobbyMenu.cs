@@ -4,7 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Photon.Pun;
-
+/// <summary>
+/// Script usado para controlar o menu do lobby
+/// </summary>
 public class LobbyMenu : MonoBehaviourPunCallbacks
 {
     public TextMeshProUGUI username;

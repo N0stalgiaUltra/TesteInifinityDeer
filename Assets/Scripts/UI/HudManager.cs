@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
+/// <summary>
+/// Script responsavel por controlar a HUD do player
+/// </summary>
 public class HudManager : MonoBehaviour
 {
     [SerializeField] private HordeManager hordeManager;
@@ -21,7 +23,9 @@ public class HudManager : MonoBehaviour
     {
         SetUI();
     }
-
+    /// <summary>
+    /// Usado para atribuir os valores de atributos aos textos
+    /// </summary>
     public void SetUI()
     {
         

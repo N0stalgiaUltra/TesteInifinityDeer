@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+/// <summary>
+/// Script usado para criar o SO de inimigo
+/// </summary>
 [CreateAssetMenu(menuName = "Assets/Create Enemy")]
 public class EnemyData : ScriptableObject
 {

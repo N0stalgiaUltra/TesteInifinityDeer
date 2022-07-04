@@ -3,7 +3,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Script usado para movimentar o player
+/// </summary>
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private Rigidbody rb;
@@ -19,6 +21,10 @@ public class PlayerMovement : MonoBehaviour
         InputManager.OnMove += Move;
     }
 
+    /// <summary>
+    /// Metodo usado para movimentar o player
+    /// </summary>
+    /// <param name="movementInput">vetor de 3 dimensões recebidos do input, usados para movimentar o player</param>
     private void Move(Vector3 movementInput)
     {
         if (view.IsMine)

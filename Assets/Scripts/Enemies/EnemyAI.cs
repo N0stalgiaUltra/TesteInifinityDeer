@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+/// <summary>
+/// Script usado para controlar as ações dos inimigos
+/// </summary>
 public class EnemyAI : MonoBehaviour
 {
     [SerializeField] private EnemyData enemyData;
@@ -39,6 +42,9 @@ public class EnemyAI : MonoBehaviour
         enemyAnim.SetBool("Move", isMoving);
     }
 
+    /// <summary>
+    /// Metodo usado para movimentar o inimigo
+    /// </summary>
     private void Move()
     {
         agent.speed = enemyData.speed;
@@ -46,7 +52,9 @@ public class EnemyAI : MonoBehaviour
         transform.LookAt(currentPlayer.transform);
         isMoving = true;
     }
-
+    /// <summary>
+    /// Metodo usado para controlar o ataque do inimigo
+    /// </summary>
     public void AttackMotion()
     {
         isMoving = false;
@@ -59,11 +67,19 @@ public class EnemyAI : MonoBehaviour
             attackCounter = Time.time + attackRate;
         }
     }
-
+    /// <summary>
+    /// Metodo usado para atribuir dano ao player (é chamado via AnimationEvent)
+    /// </summary>
     public void DamagePlayer()
     {
         currentPlayer.GetComponent<PlayerHealth>().Damage(enemyData.damage);
     }
+
+    /// <summary>
+    /// Metodo que retorna a distancia entre o inimigo e o player
+    /// </summary>
+    /// <param name="player">transform do player na cena</param>
+    /// <returns></returns>
     private float Distance(Transform player)
     {
         return Vector3.Distance(this.transform.position, player.position);

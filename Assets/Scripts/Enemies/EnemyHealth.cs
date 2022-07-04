@@ -2,7 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Script usado para controlar a vida do inimigo
+/// </summary>
 public class EnemyHealth : MonoBehaviour, IHealth
 {
     [SerializeField] private EnemyData enemyData;
@@ -28,12 +30,19 @@ public class EnemyHealth : MonoBehaviour, IHealth
             OnDeath();
         }
     }
+    /// <summary>
+    /// Metodo implementado da interface IHealth, usado para atribuir dano ao inimigo
+    /// </summary>
+    /// <param name="value">dano a ser decrescido da vida do inimigo</param>
     public void Damage(int value)
     {
         if (this.enemyHealth > 0)
             this.enemyHealth -= value;
     }
 
+    /// <summary>
+    /// Metodo para atribuir o comportamento de morte ao inimigo, retornando ele para o pool
+    /// </summary>
     private void OnDeath()
     {
         if (enemyDead != null)

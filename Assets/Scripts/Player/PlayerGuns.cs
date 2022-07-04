@@ -2,7 +2,9 @@ using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Script que controla as armas do player
+/// </summary>
 public class PlayerGuns : PickUpItems
 {
     [SerializeField] private GunLogic playerGun;
